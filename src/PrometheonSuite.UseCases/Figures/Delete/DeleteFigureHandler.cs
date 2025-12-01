@@ -1,12 +1,13 @@
-﻿using PrometheonSuite.Identity.Entities.FigureAggregate;
+﻿using PrometheonSuite.Identity.Core.Interfaces;
+using PrometheonSuite.Identity.Entities.FigureAggregate;
 using PrometheonSuite.Identity.Entities.FigureAggregate.Specifications;
 
 namespace  PrometheonSuite.Identity.UseCases.Figures.Delete;
 
-public class DeleteFigureHandler(IRepository<Figure> repository)
+public class DeleteFigureHandler(ICoreRepository<Figure> repository)
   : ICommandHandler<DeleteFigureCommand, Result>
 {
-  private readonly IRepository<Figure> _repository = repository;
+  private readonly ICoreRepository<Figure> _repository = repository;
 
   public async ValueTask<Result> Handle(DeleteFigureCommand request, CancellationToken cancellationToken)
   {

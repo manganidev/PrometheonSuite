@@ -20,12 +20,12 @@ public abstract class BaseEfRepoTestFixture
     var serviceProvider = new ServiceCollection()
         .AddEntityFrameworkInMemoryDatabase()
         .AddScoped<IDomainEventDispatcher>(_ => fakeEventDispatcher)
-        .AddScoped<EventDispatchInterceptor>()
+        .AddScoped<Core_EventDispatchInterceptor>()
         .BuildServiceProvider();
 
     // Create a new options instance telling the context to use an
     // InMemory database and the new service provider.
-    var interceptor = serviceProvider.GetRequiredService<EventDispatchInterceptor>();
+    var interceptor = serviceProvider.GetRequiredService<Core_EventDispatchInterceptor>();
 
     var builder = new DbContextOptionsBuilder<CoreDbContext>();
     builder.UseInMemoryDatabase("cleanarchitecture")

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using PrometheonSuite.Identity.Entities.UtenteAggregate;
-
+using PrometheonSuite.Identity.Core.Interfaces;
 namespace  PrometheonSuite.Identity.UseCases.Utenti.List;
 
-public class ListUtentiHandler(IReadRepository<Utente> repository)
+public class ListUtentiHandler(ICoreReadRepository<Utente> repository)
     : IQueryHandler<ListUtentiQuery, Result<PagedResult<UtenteDto>>>
 {
   public async ValueTask<Result<PagedResult<UtenteDto>>> Handle(ListUtentiQuery request, CancellationToken cancellationToken)

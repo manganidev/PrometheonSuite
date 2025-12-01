@@ -1,12 +1,12 @@
 ﻿using PrometheonSuite.Identity.Entities.TenantAggregate;
 using PrometheonSuite.Identity.Entities.TenantAggregate.Specifications;
-
+using PrometheonSuite.Identity.Core.Interfaces;
 namespace  PrometheonSuite.Identity.UseCases.Tenants.Update;
 
-public class UpdateTenantHandler(IRepository<Tenant> repository)
+public class UpdateTenantHandler(ICoreRepository<Tenant> repository)
   : ICommandHandler<UpdateTenantCommand, Result<TenantDto>>
 {
-  private readonly IRepository<Tenant> _repository = repository;
+  private readonly ICoreRepository<Tenant> _repository = repository;
 
   public async ValueTask<Result<TenantDto>> Handle(UpdateTenantCommand request, CancellationToken cancellationToken)
   {

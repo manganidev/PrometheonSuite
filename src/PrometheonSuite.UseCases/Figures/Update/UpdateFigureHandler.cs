@@ -1,12 +1,12 @@
 ﻿using PrometheonSuite.Identity.Entities.FigureAggregate;
 using PrometheonSuite.Identity.Entities.FigureAggregate.Specifications;
-
+using PrometheonSuite.Identity.Core.Interfaces;
 namespace  PrometheonSuite.Identity.UseCases.Figures.Update;
 
-public class UpdateFigureHandler(IRepository<Figure> repository)
+public class UpdateFigureHandler(ICoreRepository<Figure> repository)
   : ICommandHandler<UpdateFigureCommand, Result<FigureDto>>
 {
-  private readonly IRepository<Figure> _repository = repository;
+  private readonly ICoreRepository<Figure> _repository = repository;
 
   public async ValueTask<Result<FigureDto>> Handle(UpdateFigureCommand request, CancellationToken cancellationToken)
   {

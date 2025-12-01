@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using PrometheonSuite.Identity.Core.Interfaces;
 using PrometheonSuite.Identity.Entities.UtenteAggregate;
 
 namespace  PrometheonSuite.Identity.UseCases.Utenti.Update;
 
-public class UpdateUtenteHandler(IRepository<Utente> repository)
+public class UpdateUtenteHandler(ICoreRepository<Utente> repository)
     : ICommandHandler<UpdateUtenteCommand, Result<UtenteDto>>
 {
   public async ValueTask<Result<UtenteDto>> Handle(UpdateUtenteCommand request, CancellationToken cancellationToken)

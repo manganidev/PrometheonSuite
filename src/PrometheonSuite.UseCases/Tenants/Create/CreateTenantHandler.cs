@@ -1,12 +1,12 @@
 ﻿using PrometheonSuite.Identity.Entities.TenantAggregate;
 using PrometheonSuite.Identity.Entities.TenantAggregate.Specifications;
-
+using PrometheonSuite.Identity.Core.Interfaces;
 namespace  PrometheonSuite.Identity.UseCases.Tenants.Create;
 
-public class CreateTenantHandler(IRepository<Tenant> repository)
+public class CreateTenantHandler(ICoreRepository<Tenant> repository)
   : ICommandHandler<CreateTenantCommand, Result<TenantId>>
 {
-  private readonly IRepository<Tenant> _repository = repository;
+  private readonly ICoreRepository<Tenant> _repository = repository;
 
   public async ValueTask<Result<TenantId>> Handle(CreateTenantCommand request, CancellationToken cancellationToken)
   {

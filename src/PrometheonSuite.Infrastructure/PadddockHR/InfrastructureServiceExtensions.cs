@@ -1,5 +1,5 @@
-﻿
-using PrometheonSuite.Infrastructure.PaddockHR.Data;
+﻿using PrometheonSuite.Infrastructure.PaddockHR.Data;
+using PrometheonSuite.PaddockHR.Core.Interfaces;
 
 namespace PrometheonSuite.Infrastructure.PaddockHR;
 public static class InfrastructureServiceExtensions
@@ -17,12 +17,12 @@ public static class InfrastructureServiceExtensions
                     
     Guard.Against.Null(connectionString);
 
-    services.AddScoped<EventDispatchInterceptor>();
+    services.AddScoped<PaddockDbEventDispatchInterceptor>();
     services.AddScoped<IDomainEventDispatcher, MediatorDomainEventDispatcher>();
 
     services.AddDbContext<PaddockHRDbContext>((provider, options) =>
     {
-      var eventDispatchInterceptor = provider.GetRequiredService<EventDispatchInterceptor>();
+      var eventDispatchInterceptor = provider.GetRequiredService<PaddockDbEventDispatchInterceptor>();
 
       // Use SQL Server if Aspire or DefaultConnection is available, otherwise use SQLite
       if (config.GetConnectionString("PaddockHRDB") != null)
@@ -33,8 +33,8 @@ public static class InfrastructureServiceExtensions
       options.AddInterceptors(eventDispatchInterceptor);
     });
 
-    services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>))
-           .AddScoped(typeof(IReadRepository<>), typeof(EfRepository<>));
+    services.AddScoped(typeof(IPaddockRepository<>), typeof(PaddockEfRepository<>))
+           .AddScoped(typeof(IPaddockReadRepository<>), typeof(PaddockEfRepository<>));
            //.AddScoped<IListContributorsQueryService, ListContributorsQueryService>()
            //.AddScoped<IDeleteContributorService, DeleteContributorService>();
 

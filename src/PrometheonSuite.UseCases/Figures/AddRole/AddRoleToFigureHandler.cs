@@ -1,15 +1,16 @@
-﻿using PrometheonSuite.Identity.Entities.FigureAggregate;
+﻿using PrometheonSuite.Identity.Core.Interfaces;
+using PrometheonSuite.Identity.Entities.FigureAggregate;
 using PrometheonSuite.Identity.Entities.FigureAggregate.Specifications;
 using PrometheonSuite.Identity.Entities.RoleAggregate;
 using PrometheonSuite.Identity.Entities.RoleAggregate.Specifications;
 
 namespace  PrometheonSuite.Identity.UseCases.Figures.AddRole;
 
-public class AddRoleToFigureHandler(IRepository<Figure> figureRepository, IRepository<Role> roleRepository)
+public class AddRoleToFigureHandler(ICoreRepository<Figure> figureRepository, ICoreRepository<Role> roleRepository)
   : ICommandHandler<AddRoleToFigureCommand, Result<FigureDto>>
 {
-  private readonly IRepository<Figure> _figureRepository = figureRepository;
-  private readonly IRepository<Role> _roleRepository = roleRepository;
+  private readonly ICoreRepository<Figure> _figureRepository = figureRepository;
+  private readonly ICoreRepository<Role> _roleRepository = roleRepository;
 
   public async ValueTask<Result<FigureDto>> Handle(AddRoleToFigureCommand request, CancellationToken cancellationToken)
   {

@@ -2,16 +2,16 @@
 using PrometheonSuite.Identity.Entities.UserTenantAggregate.Specifications;
 using PrometheonSuite.Identity.Entities.RoleAggregate;
 using PrometheonSuite.Identity.Entities.RoleAggregate.Specifications;
-
+using PrometheonSuite.Identity.Core.Interfaces;
 namespace  PrometheonSuite.Identity.UseCases.UserTenants.AddRole;
 
 public class AddRoleToUserTenantHandler(
-  IRepository<UserTenant> userTenantRepository,
-  IRepository<Role> roleRepository)
+  ICoreRepository<UserTenant> userTenantRepository,
+  ICoreRepository<Role> roleRepository)
   : ICommandHandler<AddRoleToUserTenantCommand, Result<UserTenantDto>>
 {
-  private readonly IRepository<UserTenant> _userTenantRepository = userTenantRepository;
-  private readonly IRepository<Role> _roleRepository = roleRepository;
+  private readonly ICoreRepository<UserTenant> _userTenantRepository = userTenantRepository;
+  private readonly ICoreRepository<Role> _roleRepository = roleRepository;
 
   public async ValueTask<Result<UserTenantDto>> Handle(AddRoleToUserTenantCommand request, CancellationToken cancellationToken)
   {

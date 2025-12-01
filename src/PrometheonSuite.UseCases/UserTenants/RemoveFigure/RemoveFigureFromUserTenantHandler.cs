@@ -1,12 +1,12 @@
 ﻿using PrometheonSuite.Identity.Entities.UserTenantAggregate;
 using PrometheonSuite.Identity.Entities.UserTenantAggregate.Specifications;
-
+using PrometheonSuite.Identity.Core.Interfaces;
 namespace  PrometheonSuite.Identity.UseCases.UserTenants.RemoveFigure;
 
-public class RemoveFigureFromUserTenantHandler(IRepository<UserTenant> repository)
+public class RemoveFigureFromUserTenantHandler(ICoreRepository<UserTenant> repository)
   : ICommandHandler<RemoveFigureFromUserTenantCommand, Result<UserTenantDto>>
 {
-  private readonly IRepository<UserTenant> _repository = repository;
+  private readonly ICoreRepository<UserTenant> _repository = repository;
 
   public async ValueTask<Result<UserTenantDto>> Handle(RemoveFigureFromUserTenantCommand request, CancellationToken cancellationToken)
   {

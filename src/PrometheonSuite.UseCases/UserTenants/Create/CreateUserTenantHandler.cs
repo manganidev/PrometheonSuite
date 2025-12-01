@@ -4,18 +4,18 @@ using PrometheonSuite.Identity.Entities.UtenteAggregate;
 using PrometheonSuite.Identity.Entities.UtenteAggregate.Specifications;
 using PrometheonSuite.Identity.Entities.TenantAggregate;
 using PrometheonSuite.Identity.Entities.TenantAggregate.Specifications;
-
+using PrometheonSuite.Identity.Core.Interfaces;
 namespace  PrometheonSuite.Identity.UseCases.UserTenants.Create;
 
 public class CreateUserTenantHandler(
-  IRepository<UserTenant> userTenantRepository,
-  IRepository<Utente> userRepository,
-  IRepository<Tenant> tenantRepository)
+  ICoreRepository<UserTenant> userTenantRepository,
+  ICoreRepository<Utente> userRepository,
+  ICoreRepository<Tenant> tenantRepository)
   : ICommandHandler<CreateUserTenantCommand, Result<UserTenantDto>>
 {
-  private readonly IRepository<UserTenant> _userTenantRepository = userTenantRepository;
-  private readonly IRepository<Utente> _userRepository = userRepository;
-  private readonly IRepository<Tenant> _tenantRepository = tenantRepository;
+  private readonly ICoreRepository<UserTenant> _userTenantRepository = userTenantRepository;
+  private readonly ICoreRepository<Utente> _userRepository = userRepository;
+  private readonly ICoreRepository<Tenant> _tenantRepository = tenantRepository;
 
   public async ValueTask<Result<UserTenantDto>> Handle(CreateUserTenantCommand request, CancellationToken cancellationToken)
   {

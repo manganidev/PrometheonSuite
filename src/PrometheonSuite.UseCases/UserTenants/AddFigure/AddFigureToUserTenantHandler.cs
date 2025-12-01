@@ -2,16 +2,16 @@
 using PrometheonSuite.Identity.Entities.UserTenantAggregate.Specifications;
 using PrometheonSuite.Identity.Entities.FigureAggregate;
 using PrometheonSuite.Identity.Entities.FigureAggregate.Specifications;
-
+using PrometheonSuite.Identity.Core.Interfaces;
 namespace  PrometheonSuite.Identity.UseCases.UserTenants.AddFigure;
 
 public class AddFigureToUserTenantHandler(
-  IRepository<UserTenant> userTenantRepository,
-  IRepository<Figure> figureRepository)
+  ICoreRepository<UserTenant> userTenantRepository,
+  ICoreRepository<Figure> figureRepository)
   : ICommandHandler<AddFigureToUserTenantCommand, Result<UserTenantDto>>
 {
-  private readonly IRepository<UserTenant> _userTenantRepository = userTenantRepository;
-  private readonly IRepository<Figure> _figureRepository = figureRepository;
+  private readonly ICoreRepository<UserTenant> _userTenantRepository = userTenantRepository;
+  private readonly ICoreRepository<Figure> _figureRepository = figureRepository;
 
   public async ValueTask<Result<UserTenantDto>> Handle(AddFigureToUserTenantCommand request, CancellationToken cancellationToken)
   {

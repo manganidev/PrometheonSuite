@@ -1,12 +1,12 @@
 ﻿using PrometheonSuite.Identity.Entities.TenantAggregate;
 using PrometheonSuite.Identity.Entities.TenantAggregate.Specifications;
-
+using PrometheonSuite.Identity.Core.Interfaces;
 namespace  PrometheonSuite.Identity.UseCases.Tenants.Delete;
 
-public class DeleteTenantHandler(IRepository<Tenant> repository)
+public class DeleteTenantHandler(ICoreRepository<Tenant> repository)
   : ICommandHandler<DeleteTenantCommand, Result>
 {
-  private readonly IRepository<Tenant> _repository = repository;
+  private readonly ICoreRepository<Tenant> _repository = repository;
 
   public async ValueTask<Result> Handle(DeleteTenantCommand request, CancellationToken cancellationToken)
   {

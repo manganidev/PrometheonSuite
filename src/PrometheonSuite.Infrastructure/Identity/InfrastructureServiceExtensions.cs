@@ -1,4 +1,4 @@
-﻿
+﻿using PrometheonSuite.Identity.Core.Interfaces;
 using PrometheonSuite.Infrastructure.Identity.Data;
 
 namespace PrometheonSuite.Infrastructure.Identity;
@@ -16,12 +16,12 @@ public static class InfrastructureServiceExtensions
     string? connectionString = config.GetConnectionString("CoreDB");
     Guard.Against.Null(connectionString);
 
-    services.AddScoped<EventDispatchInterceptor>();
+    services.AddScoped<Core_EventDispatchInterceptor>();
     services.AddScoped<IDomainEventDispatcher, MediatorDomainEventDispatcher>();
 
     services.AddDbContext<CoreDbContext>((provider, options) =>
     {
-      var eventDispatchInterceptor = provider.GetRequiredService<EventDispatchInterceptor>();
+      var eventDispatchInterceptor = provider.GetRequiredService<Core_EventDispatchInterceptor>();
       
       // Use SQL Server if Aspire or DefaultConnection is available, otherwise use SQLite
       if (config.GetConnectionString("CoreDB") != null)
@@ -33,8 +33,8 @@ public static class InfrastructureServiceExtensions
       options.AddInterceptors(eventDispatchInterceptor);
     });
 
-    services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>))
-           .AddScoped(typeof(IReadRepository<>), typeof(EfRepository<>));
+    services.AddScoped(typeof(ICoreRepository<>), typeof(CoreEfRepository<>))
+           .AddScoped(typeof(ICoreReadRepository<>), typeof(CoreEfRepository<>));
            //.AddScoped<IListContributorsQueryService, ListContributorsQueryService>()
            //.AddScoped<IDeleteContributorService, DeleteContributorService>();
 

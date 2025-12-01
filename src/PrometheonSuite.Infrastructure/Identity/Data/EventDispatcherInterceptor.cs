@@ -3,7 +3,7 @@
 namespace PrometheonSuite.Infrastructure.Identity.Data;
 
 // Intercepts SaveChanges to dispatch domain events after changes are successfully saved
-public class EventDispatchInterceptor(IDomainEventDispatcher domainEventDispatcher) : SaveChangesInterceptor
+public class Core_EventDispatchInterceptor(IDomainEventDispatcher domainEventDispatcher) : SaveChangesInterceptor
 {
   private readonly IDomainEventDispatcher _domainEventDispatcher = domainEventDispatcher;
 

@@ -1,12 +1,12 @@
 ﻿using PrometheonSuite.Identity.Entities.UserTenantAggregate;
 using PrometheonSuite.Identity.Entities.UserTenantAggregate.Specifications;
-
+using PrometheonSuite.Identity.Core.Interfaces;
 namespace  PrometheonSuite.Identity.UseCases.UserTenants.RemoveRole;
 
-public class RemoveRoleFromUserTenantHandler(IRepository<UserTenant> repository)
+public class RemoveRoleFromUserTenantHandler(ICoreRepository<UserTenant> repository)
   : ICommandHandler<RemoveRoleFromUserTenantCommand, Result<UserTenantDto>>
 {
-  private readonly IRepository<UserTenant> _repository = repository;
+  private readonly ICoreRepository<UserTenant> _repository = repository;
 
   public async ValueTask<Result<UserTenantDto>> Handle(RemoveRoleFromUserTenantCommand request, CancellationToken cancellationToken)
   {

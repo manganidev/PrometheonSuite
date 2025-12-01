@@ -1,11 +1,11 @@
 ﻿using PrometheonSuite.Identity.Entities.FigureAggregate;
-
+using PrometheonSuite.Identity.Core.Interfaces;
 namespace  PrometheonSuite.Identity.UseCases.Figures.List;
 
-public class ListFiguresHandler(IRepository<Figure> repository)
+public class ListFiguresHandler(ICoreRepository<Figure> repository)
   : IQueryHandler<ListFiguresQuery, Result<PagedResult<FigureDto>>>
 {
-  private readonly IRepository<Figure> _repository = repository;
+  private readonly ICoreRepository<Figure> _repository = repository;
 
   public async ValueTask<Result<PagedResult<FigureDto>>> Handle(ListFiguresQuery request, CancellationToken cancellationToken)
   {

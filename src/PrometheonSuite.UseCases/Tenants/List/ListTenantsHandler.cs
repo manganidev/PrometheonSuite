@@ -1,11 +1,11 @@
 ﻿using PrometheonSuite.Identity.Entities.TenantAggregate;
-
+using PrometheonSuite.Identity.Core.Interfaces;
 namespace  PrometheonSuite.Identity.UseCases.Tenants.List;
 
-public class ListTenantsHandler(IRepository<Tenant> repository)
+public class ListTenantsHandler(ICoreRepository<Tenant> repository)
   : IQueryHandler<ListTenantsQuery, Result<PagedResult<TenantDto>>>
 {
-  private readonly IRepository<Tenant> _repository = repository;
+  private readonly ICoreRepository<Tenant> _repository = repository;
 
   public async ValueTask<Result<PagedResult<TenantDto>>> Handle(ListTenantsQuery request, CancellationToken cancellationToken)
   {

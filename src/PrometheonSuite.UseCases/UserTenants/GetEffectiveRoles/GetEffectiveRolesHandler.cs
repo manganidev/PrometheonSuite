@@ -5,18 +5,18 @@ using PrometheonSuite.Identity.Entities.FigureAggregate.Specifications;
 using PrometheonSuite.Identity.Entities.RoleAggregate;
 using PrometheonSuite.Identity.Entities.RoleAggregate.Specifications;
 using  PrometheonSuite.Identity.UseCases.Roles;
-
+using PrometheonSuite.Identity.Core.Interfaces;
 namespace  PrometheonSuite.Identity.UseCases.UserTenants.GetEffectiveRoles;
 
 public class GetEffectiveRolesHandler(
-  IRepository<UserTenant> userTenantRepository,
-  IRepository<Figure> figureRepository,
-  IRepository<Role> roleRepository)
+  ICoreRepository<UserTenant> userTenantRepository,
+  ICoreRepository<Figure> figureRepository,
+  ICoreRepository<Role> roleRepository)
   : IQueryHandler<GetEffectiveRolesQuery, Result<EffectiveRolesDto>>
 {
-  private readonly IRepository<UserTenant> _userTenantRepository = userTenantRepository;
-  private readonly IRepository<Figure> _figureRepository = figureRepository;
-  private readonly IRepository<Role> _roleRepository = roleRepository;
+  private readonly ICoreRepository<UserTenant> _userTenantRepository = userTenantRepository;
+  private readonly ICoreRepository<Figure> _figureRepository = figureRepository;
+  private readonly ICoreRepository<Role> _roleRepository = roleRepository;
 
   public async ValueTask<Result<EffectiveRolesDto>> Handle(GetEffectiveRolesQuery request, CancellationToken cancellationToken)
   {

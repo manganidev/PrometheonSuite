@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using PrometheonSuite.Identity.Core.Interfaces;
 using PrometheonSuite.Identity.Entities.UtenteAggregate;
 
 namespace  PrometheonSuite.Identity.UseCases.Utenti.Get;
 
 
-public class GetUtenteHandler(IReadRepository<Utente> repository)
+public class GetUtenteHandler(ICoreReadRepository<Utente> repository)
     : IQueryHandler<GetUtenteQuery, Result<UtenteDto>>
 {
   public async ValueTask<Result<UtenteDto>> Handle(GetUtenteQuery request, CancellationToken cancellationToken)

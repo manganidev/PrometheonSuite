@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using PrometheonSuite.Identity.Entities.UtenteAggregate;
-
+using PrometheonSuite.Identity.Core.Interfaces;
 namespace  PrometheonSuite.Identity.UseCases.Utenti.Delete;
 
-public class DeleteUtenteHandler(IRepository<Utente> repository)
+public class DeleteUtenteHandler(ICoreRepository<Utente> repository)
     : ICommandHandler<DeleteUtenteCommand, Result>
 {
   public async ValueTask<Result> Handle(DeleteUtenteCommand request, CancellationToken cancellationToken)

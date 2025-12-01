@@ -3,7 +3,7 @@
 namespace PrometheonSuite.Infrastructure.PaddockHR.Data;
 
 // Intercepts SaveChanges to dispatch domain events after changes are successfully saved
-public class EventDispatchInterceptor(IDomainEventDispatcher domainEventDispatcher) : SaveChangesInterceptor
+public class PaddockDbEventDispatchInterceptor(IDomainEventDispatcher domainEventDispatcher) : SaveChangesInterceptor
 {
   private readonly IDomainEventDispatcher _domainEventDispatcher = domainEventDispatcher;
 

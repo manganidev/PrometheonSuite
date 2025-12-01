@@ -1,14 +1,15 @@
-﻿using PrometheonSuite.Identity.Entities.FigureAggregate;
+﻿using PrometheonSuite.Identity.Core.Interfaces;
+using PrometheonSuite.Identity.Entities.FigureAggregate;
 using PrometheonSuite.Identity.Entities.FigureAggregate.Specifications;
 using PrometheonSuite.Identity.Entities.RoleAggregate;
 
 namespace  PrometheonSuite.Identity.UseCases.Figures.Create;
 
-public class CreateFigureHandler(IRepository<Figure> figureRepository, IRepository<Role> roleRepository)
+public class CreateFigureHandler(ICoreRepository<Figure> figureRepository, ICoreRepository<Role> roleRepository)
   : ICommandHandler<CreateFigureCommand, Result<FigureId>>
 {
-  private readonly IRepository<Figure> _figureRepository = figureRepository;
-  private readonly IRepository<Role> _roleRepository = roleRepository;
+  private readonly ICoreRepository<Figure> _figureRepository = figureRepository;
+  private readonly ICoreRepository<Role> _roleRepository = roleRepository;
 
   public async ValueTask<Result<FigureId>> Handle(CreateFigureCommand request, CancellationToken cancellationToken)
   {

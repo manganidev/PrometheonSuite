@@ -1,12 +1,12 @@
 ﻿using PrometheonSuite.Identity.Entities.RoleAggregate;
 using PrometheonSuite.Identity.Entities.RoleAggregate.Specifications;
-
+using PrometheonSuite.Identity.Core.Interfaces;
 namespace  PrometheonSuite.Identity.UseCases.Roles.Get;
 
-public class GetRoleHandler(IRepository<Role> repository)
+public class GetRoleHandler(ICoreRepository<Role> repository)
   : IQueryHandler<GetRoleQuery, Result<RoleDto>>
 {
-  private readonly IRepository<Role> _repository = repository;
+  private readonly ICoreRepository<Role> _repository = repository;
 
   public async ValueTask<Result<RoleDto>> Handle(GetRoleQuery request, CancellationToken cancellationToken)
   {
