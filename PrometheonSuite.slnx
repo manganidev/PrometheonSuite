@@ -12,8 +12,8 @@
     <File Path="Directory.Packages.props" />
   </Folder>
   <Folder Name="/src/">
-    <Project Path="PaddockHR.Core/PaddockHR.Core.csproj" Id="c5587b0d-2ade-4560-85ce-60d970fdd435" />
-    <Project Path="PaddockHR.UseCases/PaddockHR.UseCases.csproj" Id="7dd17269-130b-4e6b-bcf6-c74044636e5b" />
+    <Project Path="src/PaddockHR.Core/PaddockHR.Core.csproj" />
+    <Project Path="src/PaddockHR.UseCases/PaddockHR.UseCases.csproj" />
     <Project Path="src/PrometheonSuite.Core/PrometheonSuite.Identity.Core.csproj" />
     <Project Path="src/PrometheonSuite.Infrastructure/PrometheonSuite.Infrastructure.csproj" />
     <Project Path="src/PrometheonSuite.UseCases/PrometheonSuite.Identity.UseCases.csproj" />
