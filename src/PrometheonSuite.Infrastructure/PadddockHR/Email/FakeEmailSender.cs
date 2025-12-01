@@ -2,7 +2,9 @@
 
 
 
-using PrometheonSuite.PaddockHR.Core.Interfaces;
+
+
+using PrometheonSuite.Identity.Core.Interfaces;
 
 namespace PrometheonSuite.Infrastructure.PaddockHR.Email;
 

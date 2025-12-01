@@ -1,4 +1,4 @@
-﻿namespace PrometheonSuite.UseCases;
+﻿namespace PrometheonSuite.Identity.UseCases;
 
 public class Constants
 {
