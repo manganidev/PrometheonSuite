@@ -4,7 +4,7 @@ using PrometheonSuite.Infrastructure.PaddockHR.Data;
 namespace PrometheonSuite.Infrastructure.PaddockHR;
 public static class InfrastructureServiceExtensions
 {
-  public static IServiceCollection AddInfrastructureServices(
+  public static IServiceCollection AddPaddockHRInfrastructureServices(
     this IServiceCollection services,
     ConfigurationManager config,
     ILogger logger)

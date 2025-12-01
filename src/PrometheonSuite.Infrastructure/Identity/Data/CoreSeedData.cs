@@ -2,7 +2,7 @@
 
 namespace PrometheonSuite.Infrastructure.Identity.Data;
 
-public static class SeedData
+public static class CoreSeedData
 {
   //public const int NUMBER_OF_CONTRIBUTORS = 27; // including the 2 below
 

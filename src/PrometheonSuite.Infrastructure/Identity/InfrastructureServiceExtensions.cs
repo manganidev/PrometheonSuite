@@ -4,7 +4,7 @@ using PrometheonSuite.Infrastructure.Identity.Data;
 namespace PrometheonSuite.Infrastructure.Identity;
 public static class InfrastructureServiceExtensions
 {
-  public static IServiceCollection AddInfrastructureServices(
+  public static IServiceCollection AddCoreInfrastructureServices(
     this IServiceCollection services,
     ConfigurationManager config,
     ILogger logger)

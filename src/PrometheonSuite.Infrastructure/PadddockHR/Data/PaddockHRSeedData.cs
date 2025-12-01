@@ -2,7 +2,7 @@
 
 namespace PrometheonSuite.Infrastructure.PaddockHR.Data;
 
-public static class SeedData
+public static class PaddockHRSeedData
 {
   //public const int NUMBER_OF_CONTRIBUTORS = 27; // including the 2 below
 
