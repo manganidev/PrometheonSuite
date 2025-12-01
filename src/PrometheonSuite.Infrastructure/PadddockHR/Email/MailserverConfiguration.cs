@@ -1,4 +1,4 @@
-﻿namespace PrometheonSuite.Infrastructure.PaddockHR.Email;
+﻿namespace PrometheonSuite.Infrastructure.PaddockHR.SenderEmail;
 
 public class MailserverConfiguration()
 {

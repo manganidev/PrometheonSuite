@@ -1,5 +1,5 @@
 ﻿using Ardalis.ListStartupServices;
-using PrometheonSuite.Infrastructure.Identity.Email;
+using PrometheonSuite.Infrastructure.Identity.SenderEmail;
 
 namespace PrometheonSuite.Web.Configurations;
 

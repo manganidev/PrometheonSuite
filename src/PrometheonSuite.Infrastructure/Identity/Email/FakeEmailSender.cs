@@ -2,7 +2,7 @@
 
 using PrometheonSuite.Identity.Core.Interfaces;
 
-namespace PrometheonSuite.Infrastructure.Identity.Email;
+namespace PrometheonSuite.Infrastructure.Identity.SenderEmail;
 
 public class FakeEmailSender(ILogger<FakeEmailSender> logger) : IEmailSender
 {

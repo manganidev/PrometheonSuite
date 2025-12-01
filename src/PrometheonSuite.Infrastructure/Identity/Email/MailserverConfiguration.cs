@@ -1,4 +1,4 @@
-﻿namespace PrometheonSuite.Infrastructure.Identity.Email;
+﻿namespace PrometheonSuite.Infrastructure.Identity.SenderEmail;
 
 public class MailserverConfiguration()
 {

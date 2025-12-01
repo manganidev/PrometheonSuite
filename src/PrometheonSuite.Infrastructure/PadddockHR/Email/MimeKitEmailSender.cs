@@ -2,7 +2,7 @@
 
 using PrometheonSuite.PaddockHR.Core.Interfaces;
 
-namespace PrometheonSuite.Infrastructure.PaddockHR.Email;
+namespace PrometheonSuite.Infrastructure.PaddockHR.SenderEmail;
 
 public class MimeKitEmailSender(ILogger<MimeKitEmailSender> logger,
   IOptions<MailserverConfiguration> mailserverOptions) : IEmailSender
