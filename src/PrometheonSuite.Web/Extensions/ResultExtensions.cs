@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 
-namespace PrometheonSuite.Web.Extensions;
+namespace PrometheonSuite.Identity.Web.Extensions;
 
 public static class ResultExtensions
 {

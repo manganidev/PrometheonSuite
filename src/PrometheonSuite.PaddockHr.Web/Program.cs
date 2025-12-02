@@ -1,7 +1,6 @@
-﻿using PrometheonSuite.Identity.Core.Interfaces;
-using PrometheonSuite.Infrastructure.Identity.Data;
-
-using PrometheonSuite.Identity.Web.Configurations;
+﻿using PrometheonSuite.Infrastructure.PaddockHR.Data;
+using PrometheonSuite.PaddockHR.Core.Interfaces;
+using PrometheonSuite.PaddockHR.Web.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,9 +14,9 @@ startupLogger.LogInformation("Starting web host");
 
 builder.Services.AddOptionConfigs(builder.Configuration, startupLogger, builder);
 builder.Services.AddServiceConfigs(startupLogger, builder);
-// Core repository generico (sostituisci l’implementazione con la tua concreta)
-builder.Services.AddScoped(typeof(ICoreRepository<>), typeof(CoreEfRepository<>));
 
+// Paddock repository generico (se richiesto)
+builder.Services.AddScoped(typeof(IPaddockRepository<>), typeof(PaddockEfRepository<>));
 builder.Services.AddFastEndpoints()
                 .SwaggerDocument(o =>
                 {

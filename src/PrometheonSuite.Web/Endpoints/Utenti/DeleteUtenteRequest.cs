@@ -1,4 +1,4 @@
-﻿namespace PrometheonSuite.Web.Endpoints.Identity.Utenti;
+﻿namespace PrometheonSuite.Identity.Web.Endpoints.Utenti;
 
 
 public record DeleteUtenteRequest

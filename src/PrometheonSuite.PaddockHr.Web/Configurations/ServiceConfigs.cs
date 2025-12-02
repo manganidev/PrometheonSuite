@@ -1,15 +1,16 @@
-﻿using PrometheonSuite.Identity.Core.Interfaces;
-using PrometheonSuite.Infrastructure.Identity;
-using PrometheonSuite.Infrastructure.Identity.SenderEmail;
+﻿
+using PrometheonSuite.Infrastructure.PaddockHR;
+using PrometheonSuite.Infrastructure.PaddockHR.SenderEmail;
+using PrometheonSuite.PaddockHR.Core.Interfaces;
 
-namespace PrometheonSuite.Identity.Web.Configurations;
+namespace PrometheonSuite.PaddockHR.Web.Configurations;
 
 public static class ServiceConfigs
 {
   public static IServiceCollection AddServiceConfigs(this IServiceCollection services, Microsoft.Extensions.Logging.ILogger logger, WebApplicationBuilder builder)
   {
     services
-      .AddCoreInfrastructureServices(builder.Configuration, logger)
+      .AddPaddockHRInfrastructureServices(builder.Configuration, logger)
       .AddMediatorSourceGen(logger);
 
     if (builder.Environment.IsDevelopment())

@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using FluentValidation;
 using PrometheonSuite.Identity.UseCases.Utenti.Update;
 using PrometheonSuite.Identity.Entities.UtenteAggregate;
-using PrometheonSuite.Web.Extensions;
+using PrometheonSuite.Identity.Web.Extensions;
 using PrometheonSuite.Identity.UseCases.Utenti;
 
-namespace PrometheonSuite.Web.Endpoints.Identity.Utenti;
+namespace PrometheonSuite.Identity.Web.Endpoints.Utenti;
 
 public class Update(IMediator mediator)
   : Endpoint<

@@ -22,7 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\PrometheonSuite.Infrastructure\PrometheonSuite.Infrastructure.csproj" />
     <ProjectReference Include="..\..\src\PrometheonSuite.UseCases\PrometheonSuite.Identity.UseCases.csproj" />
-    <ProjectReference Include="..\..\src\PrometheonSuite.Web\PrometheonSuite.Web.csproj" />
+    <ProjectReference Include="..\..\src\PrometheonSuite.Web\PrometheonSuite.Identity.Web.csproj" />
   </ItemGroup>
 
   <ItemGroup>

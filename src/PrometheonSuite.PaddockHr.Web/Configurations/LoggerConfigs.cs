@@ -1,6 +1,6 @@
 ﻿using Serilog;
 
-namespace PrometheonSuite.Identity.Web.Configurations;
+namespace PrometheonSuite.PaddockHR.Web.Configurations;
 
 public static class LoggerConfigs
 {

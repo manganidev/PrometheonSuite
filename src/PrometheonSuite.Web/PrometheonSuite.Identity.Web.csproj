@@ -27,14 +27,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PaddockHR.UseCases\PaddockHR.UseCases.csproj" />
     <ProjectReference Include="..\PrometheonSuite.Infrastructure\PrometheonSuite.Infrastructure.csproj" />
     <ProjectReference Include="..\PrometheonSuite.UseCases\PrometheonSuite.Identity.UseCases.csproj" />
     <ProjectReference Include="..\PrometheonSuite.ServiceDefaults\PrometheonSuite.ServiceDefaults.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Endpoints\PaddockHR\" />
   </ItemGroup>
 
 </Project>

@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using PrometheonSuite.Identity.Entities.UtenteAggregate;
 using PrometheonSuite.Identity.UseCases.Utenti.Delete;
-using PrometheonSuite.Web.Extensions;
+using PrometheonSuite.Identity.Web.Extensions;
 
-namespace PrometheonSuite.Web.Endpoints.Identity.Utenti;
+namespace PrometheonSuite.Identity.Web.Endpoints.Utenti;
 
 public class Delete
   : Endpoint<DeleteUtenteRequest,

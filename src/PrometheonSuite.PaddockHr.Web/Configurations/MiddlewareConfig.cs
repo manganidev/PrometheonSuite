@@ -1,8 +1,8 @@
 ﻿using Ardalis.ListStartupServices;
-using PrometheonSuite.Infrastructure.Identity.Data;
+using PrometheonSuite.Infrastructure.PaddockHR.Data;
 using Scalar.AspNetCore;
 
-namespace PrometheonSuite.Identity.Web.Configurations;
+namespace PrometheonSuite.PaddockHR.Web.Configurations;
 
 public static class MiddlewareConfig
 {
@@ -53,10 +53,10 @@ public static class MiddlewareConfig
 
     try
     {
-      logger.LogInformation("Applying CoreDbContext migrations...");
-      var core = services.GetRequiredService<CoreDbContext>();
-      await core.Database.MigrateAsync();
-      logger.LogInformation("CoreDbContext migrations applied");
+      logger.LogInformation("Applying PaddockHrContext migrations...");
+      var paddockDB = services.GetRequiredService<PaddockHRDbContext>();
+      await paddockDB.Database.MigrateAsync();
+      logger.LogInformation("PaddockHrContext migrations applied");
 
     }
     catch (Exception ex)
@@ -74,10 +74,10 @@ public static class MiddlewareConfig
 
     try
     {
-      logger.LogInformation("Seeding CoreDB database...");
-      var context = services.GetRequiredService<CoreDbContext>();
-      await CoreSeedData.InitializeAsync(context);
-      logger.LogInformation("Database CoreDB seeded successfully");
+      logger.LogInformation("Seeding paddockDB database...");
+      var context = services.GetRequiredService<PaddockHRDbContext>();
+      await PaddockHRSeedData.InitializeAsync(context);
+      logger.LogInformation("Database paddockDB seeded successfully");
 
 
     }

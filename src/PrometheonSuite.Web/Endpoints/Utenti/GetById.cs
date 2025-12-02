@@ -3,9 +3,10 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using PrometheonSuite.Identity.Entities.UtenteAggregate;
 using PrometheonSuite.Identity.UseCases.Utenti;
 using PrometheonSuite.Identity.UseCases.Utenti.Get;
-using PrometheonSuite.Web.Extensions;
+using PrometheonSuite.Identity.Web.Extensions;
 
-namespace PrometheonSuite.Web.Endpoints.Identity.Utenti;
+
+namespace PrometheonSuite.Identity.Web.Endpoints.Utenti;
 
 public class GetById(IMediator mediator)
   : Endpoint<GetUtenteByIdRequest,

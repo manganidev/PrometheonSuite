@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <Sdk Name="Aspire.AppHost.Sdk" Version="13.0.0" />
 
@@ -14,7 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PrometheonSuite.Web\PrometheonSuite.Web.csproj" />
+    <ProjectReference Include="..\PrometheonSuite.PaddockHr.Web\PrometheonSuite.PaddockHr.Web.csproj" />
+    <ProjectReference Include="..\PrometheonSuite.Web\PrometheonSuite.Identity.Web.csproj" />
   </ItemGroup>
   <ItemGroup>
     <!-- The IsAspireProjectResource attribute tells .NET Aspire to treat this 

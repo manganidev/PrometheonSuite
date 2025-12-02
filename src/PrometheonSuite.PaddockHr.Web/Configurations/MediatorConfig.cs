@@ -1,9 +1,8 @@
 ﻿using Ardalis.SharedKernel;
-using PrometheonSuite.Identity.Entities.UtenteAggregate;
-using PrometheonSuite.Identity.UseCases.Utenti.Create;
+
 using PrometheonSuite.Infrastructure.Identity;
 
-namespace PrometheonSuite.Identity.Web.Configurations;
+namespace PrometheonSuite.PaddockHR.Web.Configurations;
 
 public static class MediatorConfig
 {
@@ -20,8 +19,8 @@ public static class MediatorConfig
       // Supply any TYPE from each assembly you want scanned (the generator finds the assembly from the type)
       options.Assemblies =
       [
-        typeof(Utente),                       // Core
-        typeof(CreateUtenteCommand),         // UseCases
+        //typeof(Utente),                       // Core
+        //typeof(CreateUtenteCommand),         // UseCases
         typeof(InfrastructureServiceExtensions), // Infrastructure
         typeof(MediatorConfig)                  // Web
       ];

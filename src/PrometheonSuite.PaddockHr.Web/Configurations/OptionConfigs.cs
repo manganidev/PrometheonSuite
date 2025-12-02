@@ -1,7 +1,7 @@
 ﻿using Ardalis.ListStartupServices;
-using PrometheonSuite.Infrastructure.Identity.SenderEmail;
+using PrometheonSuite.Infrastructure.PaddockHR.SenderEmail;
 
-namespace PrometheonSuite.Identity.Web.Configurations;
+namespace PrometheonSuite.PaddockHR.Web.Configurations;
 
 public static class OptionConfigs
 {

@@ -3,7 +3,7 @@ using FluentValidation;
 using PrometheonSuite.Identity.UseCases.Utenti;
 using PrometheonSuite.Identity.UseCases.Utenti.List;
 
-namespace PrometheonSuite.Web.Endpoints.Identity.Utenti;
+namespace PrometheonSuite.Identity.Web.Endpoints.Utenti;
 
 public class List(IMediator mediator) : Endpoint<ListUtentiRequest, UtenteListResponse, ListUtentiMapper>
 {
@@ -89,7 +89,7 @@ public sealed class ListUtentiRequest
   public int PerPage { get; init; } = PrometheonSuite.Identity.UseCases.Constants.DEFAULT_PAGE_SIZE;
 }
 
-public record UtenteListResponse : PrometheonSuite.Identity.UseCases.PagedResult<UtenteRecord>
+public record UtenteListResponse : UseCases.PagedResult<UtenteRecord>
 {
   public UtenteListResponse(IReadOnlyList<UtenteRecord> Items, int Page, int PerPage, int TotalCount, int TotalPages)
     : base(Items, Page, PerPage, TotalCount, TotalPages)
@@ -112,9 +112,9 @@ public sealed class ListUtentiValidator : Validator<ListUtentiRequest>
 }
 
 public sealed class ListUtentiMapper
-  : Mapper<ListUtentiRequest, UtenteListResponse, PrometheonSuite.Identity.UseCases.PagedResult<UtenteDto>>
+  : Mapper<ListUtentiRequest, UtenteListResponse, UseCases.PagedResult<UtenteDto>>
 {
-  public override UtenteListResponse FromEntity(PrometheonSuite.Identity.UseCases.PagedResult<UtenteDto> e)
+  public override UtenteListResponse FromEntity(UseCases.PagedResult<UtenteDto> e)
   {
     var items = e.Items
       .Select(u => new UtenteRecord(u.Id.Value, u.Username.Value, u.Email.Value, u.Attivo))

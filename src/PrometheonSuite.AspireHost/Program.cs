@@ -30,14 +30,20 @@ var papercut = builder.AddContainer("papercut", "jijiechen/papercut", "latest")
   });
 
 // Add the web project with the database connection
-builder.AddProject<Projects.PrometheonSuite_Web>("web")
+builder.AddProject<Projects.PrometheonSuite_Identity_Web>("prometheonsuite-identity-web")
     .WithReference(coreDb)
-  .WithReference(paddockDB)
   .WithEnvironment("ASPNETCORE_ENVIRONMENT", builder.Environment.EnvironmentName)
   .WithEnvironment("Papercut__Smtp__Url", papercut.GetEndpoint("smtp"))
   .WaitFor(coreDb)
+  .WaitFor(papercut);
+
+builder.AddProject<Projects.PrometheonSuite_PaddockHr_Web>("prometheonsuite-paddockhr-web")
+  .WithReference(paddockDB)
+  .WithEnvironment("ASPNETCORE_ENVIRONMENT", builder.Environment.EnvironmentName)
+  .WithEnvironment("Papercut__Smtp__Url", papercut.GetEndpoint("smtp"))
   .WaitFor(paddockDB)
   .WaitFor(papercut);
+
 
 builder
   .Build()
