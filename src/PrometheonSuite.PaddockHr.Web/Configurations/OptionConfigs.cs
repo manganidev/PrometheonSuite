@@ -1,5 +1,5 @@
 ﻿using Ardalis.ListStartupServices;
-using PrometheonSuite.Infrastructure.PaddockHR.SenderEmail;
+using PrometheonSuite.PaddockHR.Infrastructure.Email;
 
 namespace PrometheonSuite.PaddockHR.Web.Configurations;
 

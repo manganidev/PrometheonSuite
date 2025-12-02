@@ -1,7 +1,7 @@
 ﻿using PrometheonSuite.Identity.Core.Interfaces;
-using PrometheonSuite.Infrastructure.Identity.Data;
 
 using PrometheonSuite.Identity.Web.Configurations;
+using PrometheonSuite.Identity.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

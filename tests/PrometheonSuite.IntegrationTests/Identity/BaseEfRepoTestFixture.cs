@@ -1,4 +1,4 @@
-﻿using PrometheonSuite.Infrastructure.Identity.Data;
+﻿using PrometheonSuite.Identity.Infrastructure.Data;
 
 namespace PrometheonSuite.IntegrationTests.Identity;
 

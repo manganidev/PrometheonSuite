@@ -1,7 +1,7 @@
 ﻿
-using PrometheonSuite.Infrastructure.PaddockHR;
-using PrometheonSuite.Infrastructure.PaddockHR.SenderEmail;
 using PrometheonSuite.PaddockHR.Core.Interfaces;
+using PrometheonSuite.PaddockHR.Infrastructure.Email;
+using PrometheonSuite.PaddockHR.Infrastructure;
 
 namespace PrometheonSuite.PaddockHR.Web.Configurations;
 

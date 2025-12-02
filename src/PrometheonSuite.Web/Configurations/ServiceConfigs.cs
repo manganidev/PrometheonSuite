@@ -1,6 +1,6 @@
 ﻿using PrometheonSuite.Identity.Core.Interfaces;
-using PrometheonSuite.Infrastructure.Identity;
-using PrometheonSuite.Infrastructure.Identity.SenderEmail;
+using PrometheonSuite.Identity.Infrastructure;
+using PrometheonSuite.Identity.Infrastructure.SenderEmail;
 
 namespace PrometheonSuite.Identity.Web.Configurations;
 

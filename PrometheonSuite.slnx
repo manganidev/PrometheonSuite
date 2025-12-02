@@ -12,10 +12,11 @@
     <File Path="Directory.Packages.props" />
   </Folder>
   <Folder Name="/src/">
-    <Project Path="src/PaddockHR.Core/PaddockHR.Core.csproj" />
-    <Project Path="src/PaddockHR.UseCases/PaddockHR.UseCases.csproj" />
+    <Project Path="src/PaddockHR.Core/PrometheonSuite.PaddockHR.Core.csproj" />
+    <Project Path="src/PaddockHR.UseCases/PrometheonSuite.PaddockHR.UseCases.csproj" />
     <Project Path="src/PrometheonSuite.Core/PrometheonSuite.Identity.Core.csproj" />
-    <Project Path="src/PrometheonSuite.Infrastructure/PrometheonSuite.Infrastructure.csproj" />
+    <Project Path="src/PrometheonSuite.Infrastructure/PrometheonSuite.Identity.Infrastructure.csproj" />
+    <Project Path="src/PrometheonSuite.PaddockHR.Infrastructure/PrometheonSuite.PaddockHR.Infrastructure.csproj" Id="6098d374-662d-468c-a4d9-24901c40f885" />
     <Project Path="src/PrometheonSuite.PaddockHr.Web/PrometheonSuite.PaddockHr.Web.csproj" />
     <Project Path="src/PrometheonSuite.UseCases/PrometheonSuite.Identity.UseCases.csproj" />
     <Project Path="src/PrometheonSuite.Web/PrometheonSuite.Identity.Web.csproj" />
@@ -29,7 +30,7 @@
       <BuildDependency Project="src/PrometheonSuite.Web/PrometheonSuite.Identity.Web.csproj" />
     </Project>
     <Project Path="tests/PrometheonSuite.IntegrationTests/PrometheonSuite.IntegrationTests.csproj">
-      <BuildDependency Project="src/PrometheonSuite.Infrastructure/PrometheonSuite.Infrastructure.csproj" />
+      <BuildDependency Project="src/PrometheonSuite.Infrastructure/PrometheonSuite.Identity.Infrastructure.csproj" />
     </Project>
     <Project Path="tests/PrometheonSuite.UnitTests/PrometheonSuite.UnitTests.csproj" />
   </Folder>

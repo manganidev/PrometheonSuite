@@ -1,6 +1,6 @@
 ﻿using Ardalis.SharedKernel;
+using PrometheonSuite.PaddockHR.Infrastructure;
 
-using PrometheonSuite.Infrastructure.Identity;
 
 namespace PrometheonSuite.PaddockHR.Web.Configurations;
 

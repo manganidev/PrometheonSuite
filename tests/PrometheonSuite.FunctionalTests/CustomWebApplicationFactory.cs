@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Testcontainers.MsSql;
-using PrometheonSuite.Infrastructure.Identity.Data;
+using PrometheonSuite.Identity.Infrastructure.Data;
 
 namespace PrometheonSuite.FunctionalTests;
 

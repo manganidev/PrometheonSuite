@@ -28,8 +28,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PaddockHR.UseCases\PaddockHR.UseCases.csproj" />
-    <ProjectReference Include="..\PrometheonSuite.Infrastructure\PrometheonSuite.Infrastructure.csproj" />
+    <ProjectReference Include="..\PaddockHR.UseCases\PrometheonSuite.PaddockHR.UseCases.csproj" />
+    <ProjectReference Include="..\PrometheonSuite.PaddockHR.Infrastructure\PrometheonSuite.PaddockHR.Infrastructure.csproj" />
     <ProjectReference Include="..\PrometheonSuite.ServiceDefaults\PrometheonSuite.ServiceDefaults.csproj" />
   </ItemGroup>
 

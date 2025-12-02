@@ -1,5 +1,6 @@
-﻿using PrometheonSuite.Infrastructure.PaddockHR.Data;
+﻿
 using PrometheonSuite.PaddockHR.Core.Interfaces;
+using PrometheonSuite.PaddockHR.Infrastructure.Data;
 using PrometheonSuite.PaddockHR.Web.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);

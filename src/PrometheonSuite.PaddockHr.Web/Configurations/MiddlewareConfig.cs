@@ -1,5 +1,5 @@
 ﻿using Ardalis.ListStartupServices;
-using PrometheonSuite.Infrastructure.PaddockHR.Data;
+using PrometheonSuite.PaddockHR.Infrastructure.Data;
 using Scalar.AspNetCore;
 
 namespace PrometheonSuite.PaddockHR.Web.Configurations;

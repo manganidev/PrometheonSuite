@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\PrometheonSuite.Infrastructure\PrometheonSuite.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\PrometheonSuite.Infrastructure\PrometheonSuite.Identity.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

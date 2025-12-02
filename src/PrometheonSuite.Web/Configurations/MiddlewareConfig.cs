@@ -1,5 +1,5 @@
 ﻿using Ardalis.ListStartupServices;
-using PrometheonSuite.Infrastructure.Identity.Data;
+using PrometheonSuite.Identity.Infrastructure.Data;
 using Scalar.AspNetCore;
 
 namespace PrometheonSuite.Identity.Web.Configurations;
