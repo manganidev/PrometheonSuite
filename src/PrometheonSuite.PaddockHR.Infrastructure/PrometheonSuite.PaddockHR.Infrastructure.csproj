@@ -29,6 +29,7 @@
     <ItemGroup>
       <ProjectReference Include="..\PaddockHR.Core\PrometheonSuite.PaddockHR.Core.csproj" />
       <ProjectReference Include="..\PaddockHR.UseCases\PrometheonSuite.PaddockHR.UseCases.csproj" />
+      <ProjectReference Include="..\PrometheonSuite.Shared.Infrastructure\PrometheonSuite.Shared.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

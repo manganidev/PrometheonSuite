@@ -20,4 +20,8 @@
     <Folder Include="Services\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PrometheonSuite.SharedKernel\PrometheonSuite.Shared.Kernel.csproj" />
+  </ItemGroup>
+
 </Project>

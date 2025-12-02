@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PaddockHR.Core\PrometheonSuite.PaddockHR.Core.csproj" />
+    <ProjectReference Include="..\PrometheonSuite.SharedKernel\PrometheonSuite.Shared.Kernel.csproj" />
   </ItemGroup>
 
 
