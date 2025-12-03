@@ -9,7 +9,6 @@ public class Test : EndpointWithoutRequest<Ok>
   public override void Configure()
   {
     Get("/test");
-    AllowAnonymous();
     Summary(s =>
     {
       s.Summary = "Simple test endpoint";

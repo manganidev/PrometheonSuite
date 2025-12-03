@@ -33,22 +33,24 @@ var papercut = builder.AddContainer("papercut", "jijiechen/papercut", "latest")
 // Add the web project with the database connection
 builder.AddProject<Projects.PrometheonSuite_Identity_Web>("prometheonsuite-identity-web")
     .WithReference(coreDb)
-       .WithEnvironment("Auth__Authority", "https://identity-web")
-   .WithEnvironment("Auth__Audience", "identity-api")
-      .WithEnvironment("Auth__Key", "f\"ST,qxL|X9XWuQ9sw3UH\"tXnO*mLZ'iZkoiL\\qH$`o'=\\RWf'")
-  .WithEnvironment("ASPNETCORE_ENVIRONMENT", builder.Environment.EnvironmentName)
-  .WithEnvironment("Papercut__Smtp__Url", papercut.GetEndpoint("smtp"))
-  .WaitFor(coreDb)
-  .WaitFor(papercut);
+    .WithEnvironment("Auth__Issuer", "prometheon-identity")   // PUÒ ESSERE ANCHE UN URL, ma non è obbligatorio
+    .WithEnvironment("Auth__Audience", "prometheon-suite-api")
+    .WithEnvironment("Auth__Key", "f\"ST,qxL|X9XWuQ9sw3UH\"tXnO*mLZ'iZkoiL\\qH$`o'=\\RWf'")
+    .WithEnvironment("ASPNETCORE_ENVIRONMENT", builder.Environment.EnvironmentName)
+    .WithEnvironment("Papercut__Smtp__Url", papercut.GetEndpoint("smtp"))
+    .WaitFor(coreDb)
+    .WaitFor(papercut);
 
 builder.AddProject<Projects.PrometheonSuite_PaddockHr_Web>("prometheonsuite-paddockhr-web")
-  .WithReference(paddockDB)
-     .WithEnvironment("Auth__Authority", "https://identity-web")
-   .WithEnvironment("Auth__Audience", "paddockhr-api")
-  .WithEnvironment("ASPNETCORE_ENVIRONMENT", builder.Environment.EnvironmentName)
-  .WithEnvironment("Papercut__Smtp__Url", papercut.GetEndpoint("smtp"))
-  .WaitFor(paddockDB)
-  .WaitFor(papercut);
+    .WithReference(paddockDB)
+    .WithEnvironment("Auth__Issuer", "prometheon-identity")   // lo stesso issuer!
+    .WithEnvironment("Auth__Audience", "prometheon-suite-api")
+    .WithEnvironment("Auth__Key", "f\"ST,qxL|X9XWuQ9sw3UH\"tXnO*mLZ'iZkoiL\\qH$`o'=\\RWf'")
+    .WithEnvironment("ASPNETCORE_ENVIRONMENT", builder.Environment.EnvironmentName)
+    .WithEnvironment("Papercut__Smtp__Url", papercut.GetEndpoint("smtp"))
+    .WaitFor(paddockDB)
+    .WaitFor(papercut);
+
 
 
 builder

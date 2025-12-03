@@ -20,6 +20,7 @@ builder.Services.AddServiceConfigs(startupLogger, builder);
 builder.Services.AddScoped(typeof(ICoreRepository<>), typeof(CoreEfRepository<>));
 //add JWT authentication
 builder.Services.AddJwtAuthentication(builder.Configuration);
+builder.Services.AddAuthorization();
 builder.Services.AddFastEndpoints()
                 .SwaggerDocument(o =>
                 {

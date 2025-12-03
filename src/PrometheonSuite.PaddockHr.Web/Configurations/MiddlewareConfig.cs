@@ -19,6 +19,13 @@ public static class MiddlewareConfig
       app.UseHsts();
     }
 
+    app.UseHttpsRedirection(); // Note this will drop Authorization headers
+
+    // auth middleware must run before FastEndpoints to enforce [Authorize]/Roles/Policies
+    app.UseAuthentication();
+    app.UseAuthorization();
+
+
     app.UseFastEndpoints();
 
     if (app.Environment.IsDevelopment())

@@ -18,7 +18,7 @@ builder.Services.AddOptionConfigs(builder.Configuration, startupLogger, builder)
 builder.Services.AddServiceConfigs(startupLogger, builder);
 //add JWT authentication
 builder.Services.AddJwtAuthentication(builder.Configuration);
-
+builder.Services.AddAuthorization();
 // Paddock repository generico (se richiesto)
 builder.Services.AddScoped(typeof(IPaddockRepository<>), typeof(PaddockEfRepository<>));
 builder.Services.AddFastEndpoints()

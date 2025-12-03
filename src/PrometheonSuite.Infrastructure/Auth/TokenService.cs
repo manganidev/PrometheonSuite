@@ -86,7 +86,6 @@ public class TokenService : ITokenService
 
     var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key!));
     var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
     expiresAt = DateTimeOffset.UtcNow.AddMinutes(30);
 
     var claims = new List<Claim>

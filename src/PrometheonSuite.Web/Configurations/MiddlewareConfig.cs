@@ -19,6 +19,12 @@ public static class MiddlewareConfig
       app.UseHsts();
     }
 
+    app.UseHttpsRedirection(); // Note this will drop Authorization headers
+
+    // auth middleware must run before FastEndpoints to enforce [Authorize]/Roles/Policies
+    app.UseAuthentication();
+    app.UseAuthorization();
+
     app.UseFastEndpoints();
 
     if (app.Environment.IsDevelopment())
@@ -29,8 +35,6 @@ public static class MiddlewareConfig
       });
       app.MapScalarApiReference();
     }
-
-    app.UseHttpsRedirection(); // Note this will drop Authorization headers
 
     // Run migrations and seed in Development or when explicitly requested via environment variable
     var shouldMigrate = app.Environment.IsDevelopment() || 
