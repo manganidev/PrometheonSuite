@@ -35,6 +35,7 @@ builder.AddProject<Projects.PrometheonSuite_Identity_Web>("prometheonsuite-ident
     .WithReference(coreDb)
        .WithEnvironment("Auth__Authority", "https://identity-web")
    .WithEnvironment("Auth__Audience", "identity-api")
+      .WithEnvironment("Auth__Key", "f\"ST,qxL|X9XWuQ9sw3UH\"tXnO*mLZ'iZkoiL\\qH$`o'=\\RWf'")
   .WithEnvironment("ASPNETCORE_ENVIRONMENT", builder.Environment.EnvironmentName)
   .WithEnvironment("Papercut__Smtp__Url", papercut.GetEndpoint("smtp"))
   .WaitFor(coreDb)

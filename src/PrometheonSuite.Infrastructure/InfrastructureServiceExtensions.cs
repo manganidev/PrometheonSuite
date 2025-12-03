@@ -1,4 +1,5 @@
 ﻿using PrometheonSuite.Identity.Core.Interfaces;
+using PrometheonSuite.Identity.Infrastructure.Auth;
 using PrometheonSuite.Identity.Infrastructure.Data;
 
 namespace PrometheonSuite.Identity.Infrastructure;
@@ -18,7 +19,7 @@ public static class InfrastructureServiceExtensions
 
     services.AddScoped<Core_EventDispatchInterceptor>();
     services.AddScoped<IDomainEventDispatcher, MediatorDomainEventDispatcher>();
-
+    services.AddScoped<ITokenService, TokenService>();
     services.AddDbContext<CoreDbContext>((provider, options) =>
     {
       var eventDispatchInterceptor = provider.GetRequiredService<Core_EventDispatchInterceptor>();
