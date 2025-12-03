@@ -33,6 +33,8 @@ var papercut = builder.AddContainer("papercut", "jijiechen/papercut", "latest")
 // Add the web project with the database connection
 builder.AddProject<Projects.PrometheonSuite_Identity_Web>("prometheonsuite-identity-web")
     .WithReference(coreDb)
+       .WithEnvironment("Auth__Authority", "https://identity-web")
+   .WithEnvironment("Auth__Audience", "identity-api")
   .WithEnvironment("ASPNETCORE_ENVIRONMENT", builder.Environment.EnvironmentName)
   .WithEnvironment("Papercut__Smtp__Url", papercut.GetEndpoint("smtp"))
   .WaitFor(coreDb)
@@ -40,6 +42,8 @@ builder.AddProject<Projects.PrometheonSuite_Identity_Web>("prometheonsuite-ident
 
 builder.AddProject<Projects.PrometheonSuite_PaddockHr_Web>("prometheonsuite-paddockhr-web")
   .WithReference(paddockDB)
+     .WithEnvironment("Auth__Authority", "https://identity-web")
+   .WithEnvironment("Auth__Audience", "paddockhr-api")
   .WithEnvironment("ASPNETCORE_ENVIRONMENT", builder.Environment.EnvironmentName)
   .WithEnvironment("Papercut__Smtp__Url", papercut.GetEndpoint("smtp"))
   .WaitFor(paddockDB)

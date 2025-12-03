@@ -28,6 +28,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PrometheonSuite.Infrastructure\PrometheonSuite.Identity.Infrastructure.csproj" />
+    <ProjectReference Include="..\PrometheonSuite.Shared.Infrastructure\PrometheonSuite.Shared.Infrastructure.csproj" />
     <ProjectReference Include="..\PrometheonSuite.UseCases\PrometheonSuite.Identity.UseCases.csproj" />
     <ProjectReference Include="..\PrometheonSuite.ServiceDefaults\PrometheonSuite.ServiceDefaults.csproj" />
   </ItemGroup>

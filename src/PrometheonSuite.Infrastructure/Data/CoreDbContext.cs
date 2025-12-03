@@ -1,4 +1,5 @@
-﻿using PrometheonSuite.Identity.Entities.FigureAggregate;
+﻿using PrometheonSuite.Identity.Core.Entities.TokenAggregate;
+using PrometheonSuite.Identity.Entities.FigureAggregate;
 using PrometheonSuite.Identity.Entities.RoleAggregate;
 using PrometheonSuite.Identity.Entities.TenantAggregate;
 using PrometheonSuite.Identity.Entities.UserTenantAggregate;
@@ -12,6 +13,7 @@ public class CoreDbContext(DbContextOptions<CoreDbContext> options) : DbContext(
   public DbSet<Role> Roles => Set<Role>();
   public DbSet<Figure> Figures => Set<Figure>();
   public DbSet<UserTenant> UserTenants => Set<UserTenant>();
+  public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {

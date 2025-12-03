@@ -2,6 +2,7 @@
 using PrometheonSuite.PaddockHR.Core.Interfaces;
 using PrometheonSuite.PaddockHR.Infrastructure.Data;
 using PrometheonSuite.PaddockHR.Web.Configurations;
+using PrometheonSuite.Shared.Infrastructure.Auth;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,8 @@ startupLogger.LogInformation("Starting web host");
 
 builder.Services.AddOptionConfigs(builder.Configuration, startupLogger, builder);
 builder.Services.AddServiceConfigs(startupLogger, builder);
+//add JWT authentication
+builder.Services.AddJwtAuthentication(builder.Configuration);
 
 // Paddock repository generico (se richiesto)
 builder.Services.AddScoped(typeof(IPaddockRepository<>), typeof(PaddockEfRepository<>));

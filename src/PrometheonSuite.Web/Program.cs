@@ -2,6 +2,7 @@
 
 using PrometheonSuite.Identity.Web.Configurations;
 using PrometheonSuite.Identity.Infrastructure.Data;
+using PrometheonSuite.Shared.Infrastructure.Auth;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,7 +18,8 @@ builder.Services.AddOptionConfigs(builder.Configuration, startupLogger, builder)
 builder.Services.AddServiceConfigs(startupLogger, builder);
 // Core repository generico (sostituisci l’implementazione con la tua concreta)
 builder.Services.AddScoped(typeof(ICoreRepository<>), typeof(CoreEfRepository<>));
-
+//add JWT authentication
+builder.Services.AddJwtAuthentication(builder.Configuration);
 builder.Services.AddFastEndpoints()
                 .SwaggerDocument(o =>
                 {
