@@ -1,10 +1,11 @@
 ﻿
-using Microsoft.AspNetCore.Http.HttpResults;
 using FluentValidation;
-using PrometheonSuite.Identity.UseCases.Utenti.Update;
+using Microsoft.AspNetCore.Http.HttpResults;
 using PrometheonSuite.Identity.Entities.UtenteAggregate;
-using PrometheonSuite.Identity.Web.Extensions;
 using PrometheonSuite.Identity.UseCases.Utenti;
+using PrometheonSuite.Identity.UseCases.Utenti.Comand.Update;
+using PrometheonSuite.Identity.UseCases.Utenti.Services;
+using PrometheonSuite.Identity.Web.Extensions;
 
 namespace PrometheonSuite.Identity.Web.Endpoints.Utenti;
 
@@ -70,7 +71,7 @@ public class UpdateUtenteRequest
 
 public class UpdateUtenteValidator : Validator<UpdateUtenteRequest>
 {
-  public UpdateUtenteValidator()
+  public UpdateUtenteValidator(IUtenteUniquenessChecker uniqueness)
   {
     RuleFor(x => x.Username)
       .NotEmpty()
@@ -83,7 +84,29 @@ public class UpdateUtenteValidator : Validator<UpdateUtenteRequest>
       .WithMessage("Email is required.")
       .EmailAddress()
       .WithMessage("Email must be valid.");
+
+    RuleFor(x => x.Email)
+  .NotEmpty()
+  .EmailAddress()
+  .MustAsync(async (req, email, ct) =>
+    !await uniqueness.EmailExistsForAnotherAsync(
+      Email.From(email),
+      UtenteId.From(req.UtenteId),
+      ct))
+  .WithMessage("Email already exists.");
+
+    RuleFor(x => x.Username)
+      .NotEmpty()
+      .MinimumLength(2)
+      .MaximumLength(Username.MaxLength)
+      .MustAsync(async (req, username, ct) =>
+        !await uniqueness.UsernameExistsForAnotherAsync(
+          Username.From(username),
+          UtenteId.From(req.UtenteId),
+          ct))
+      .WithMessage("Username already exists.");
   }
+
 }
 
 public record UpdateUtenteResponse(UtenteRecord Utente);

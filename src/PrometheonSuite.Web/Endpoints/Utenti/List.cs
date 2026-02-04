@@ -1,7 +1,7 @@
 ﻿
 using FluentValidation;
 using PrometheonSuite.Identity.UseCases.Utenti;
-using PrometheonSuite.Identity.UseCases.Utenti.List;
+using PrometheonSuite.Identity.UseCases.Utenti.Read.List;
 
 namespace PrometheonSuite.Identity.Web.Endpoints.Utenti;
 

@@ -1,7 +1,7 @@
 ﻿using Mediator;
 using Microsoft.AspNetCore.Http.HttpResults;
 using PrometheonSuite.Identity.Entities.UtenteAggregate;
-using PrometheonSuite.Identity.UseCases.Utenti.Delete;
+using PrometheonSuite.Identity.UseCases.Utenti.Comand.Delete;
 using PrometheonSuite.Identity.Web.Extensions;
 
 namespace PrometheonSuite.Identity.Web.Endpoints.Utenti;

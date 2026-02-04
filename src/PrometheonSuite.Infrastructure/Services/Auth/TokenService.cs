@@ -2,7 +2,7 @@
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using global::PrometheonSuite.Identity.Core.Interfaces;
+using PrometheonSuite.Identity.Core.Interfaces;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -11,7 +11,7 @@ using PrometheonSuite.Identity.Entities.UtenteAggregate;
 using PrometheonSuite.Identity.Infrastructure.Data;
 using PrometheonSuite.Identity.Core.Entities.TokenAggregate;
 
-namespace PrometheonSuite.Identity.Infrastructure.Auth;
+namespace PrometheonSuite.Identity.Infrastructure.Services.Auth;
 
 public class TokenService : ITokenService
 {

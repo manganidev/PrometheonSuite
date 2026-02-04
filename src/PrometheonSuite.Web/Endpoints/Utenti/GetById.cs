@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using PrometheonSuite.Identity.Entities.UtenteAggregate;
 using PrometheonSuite.Identity.UseCases.Utenti;
-using PrometheonSuite.Identity.UseCases.Utenti.Get;
+using PrometheonSuite.Identity.UseCases.Utenti.Read.Get;
 using PrometheonSuite.Identity.Web.Extensions;
 
 

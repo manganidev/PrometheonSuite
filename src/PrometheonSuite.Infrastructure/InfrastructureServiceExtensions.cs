@@ -1,6 +1,8 @@
 ﻿using PrometheonSuite.Identity.Core.Interfaces;
-using PrometheonSuite.Identity.Infrastructure.Auth;
 using PrometheonSuite.Identity.Infrastructure.Data;
+using PrometheonSuite.Identity.Infrastructure.Services.Auth;
+using PrometheonSuite.Identity.Infrastructure.Services.Utenti;
+using PrometheonSuite.Identity.UseCases.Utenti.Services;
 
 namespace PrometheonSuite.Identity.Infrastructure;
 public static class InfrastructureServiceExtensions
@@ -20,6 +22,7 @@ public static class InfrastructureServiceExtensions
     services.AddScoped<Core_EventDispatchInterceptor>();
     services.AddScoped<IDomainEventDispatcher, MediatorDomainEventDispatcher>();
     services.AddScoped<ITokenService, TokenService>();
+    services.AddScoped<IUtenteUniquenessChecker, UtenteUniquenessChecker>();
     services.AddDbContext<CoreDbContext>((provider, options) =>
     {
       var eventDispatchInterceptor = provider.GetRequiredService<Core_EventDispatchInterceptor>();

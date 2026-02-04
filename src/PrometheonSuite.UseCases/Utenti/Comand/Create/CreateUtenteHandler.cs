@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using PrometheonSuite.Identity.Entities.UtenteAggregate;
 using PrometheonSuite.Identity.Core.Interfaces;
-namespace  PrometheonSuite.Identity.UseCases.Utenti.Create;
+namespace  PrometheonSuite.Identity.UseCases.Utenti.Comand.Create;
 
 public class CreateUtenteHandler(ICoreRepository<Utente> repository)
   : ICommandHandler<CreateUtenteCommand, Result<UtenteDto>>

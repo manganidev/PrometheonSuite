@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using PrometheonSuite.Identity.Entities.UtenteAggregate;
 using PrometheonSuite.Identity.Core.Interfaces;
-namespace  PrometheonSuite.Identity.UseCases.Utenti.Delete;
+namespace  PrometheonSuite.Identity.UseCases.Utenti.Comand.Delete;
 
 public class DeleteUtenteHandler(ICoreRepository<Utente> repository)
     : ICommandHandler<DeleteUtenteCommand, Result>

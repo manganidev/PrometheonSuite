@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using PrometheonSuite.Identity.Entities.UtenteAggregate;
 using PrometheonSuite.Identity.Core.Interfaces;
-namespace  PrometheonSuite.Identity.UseCases.Utenti.List;
+
+namespace  PrometheonSuite.Identity.UseCases.Utenti.Read.List;
 
 public class ListUtentiHandler(ICoreReadRepository<Utente> repository)
     : IQueryHandler<ListUtentiQuery, Result<PagedResult<UtenteDto>>>

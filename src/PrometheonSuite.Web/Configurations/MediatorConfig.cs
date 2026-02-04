@@ -1,7 +1,7 @@
 ﻿using Ardalis.SharedKernel;
 using PrometheonSuite.Identity.Entities.UtenteAggregate;
 using PrometheonSuite.Identity.Infrastructure;
-using PrometheonSuite.Identity.UseCases.Utenti.Create;
+using PrometheonSuite.Identity.UseCases.Utenti.Comand.Create;
 
 namespace PrometheonSuite.Identity.Web.Configurations;
 

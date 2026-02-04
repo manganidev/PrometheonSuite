@@ -3,7 +3,8 @@
 using FluentValidation;
 using Microsoft.AspNetCore.Http.HttpResults;
 using PrometheonSuite.Identity.Entities.UtenteAggregate;
-using PrometheonSuite.Identity.UseCases.Utenti.Create;
+using PrometheonSuite.Identity.UseCases.Utenti.Comand.Create;
+using PrometheonSuite.Identity.UseCases.Utenti.Services;
 using PrometheonSuite.Identity.Web.Extensions;
 
 namespace PrometheonSuite.Identity.Web.Endpoints.Utenti;
@@ -19,6 +20,7 @@ public class Create(IMediator mediator)
   public override void Configure()
   {
     Post(CreateUtenteRequest.Route);
+    AllowAnonymous();
     Summary(s =>
     {
       s.Summary = "Create a new user";
@@ -68,34 +70,42 @@ public class CreateUtenteRequest
   public string Password { get; set; } = string.Empty;
 }
 
+
 public class CreateUtenteValidator : Validator<CreateUtenteRequest>
 {
-  public CreateUtenteValidator()
+  public CreateUtenteValidator(IUtenteUniquenessChecker uniqueness)
   {
     RuleFor(x => x.Username)
-      .NotEmpty()
-      .WithMessage("Username is required.")
+      .NotEmpty().WithMessage("Username is required.")
       .MinimumLength(2)
-      .MaximumLength(Username.MaxLength);
+      .MaximumLength(Username.MaxLength)
+      .DependentRules(() =>
+      {
+        RuleFor(x => x.Username)
+          .MustAsync(async (username, ct) =>
+            !await uniqueness.UsernameExistsAsync(Username.From(username), ct))
+          .WithMessage("Username already exists.");
+      });
 
     RuleFor(x => x.Email)
-      .NotEmpty()
-      .WithMessage("Email is required.")
-      .EmailAddress()
-      .WithMessage("Email must be valid.");
+      .NotEmpty().WithMessage("Email is required.")
+      .EmailAddress().WithMessage("Email must be valid.")
+      .DependentRules(() =>
+      {
+        RuleFor(x => x.Email)
+          .MustAsync(async (email, ct) =>
+            !await uniqueness.EmailExistsAsync(Email.From(email), ct))
+          .WithMessage("Email already exists.");
+      });
 
     RuleFor(x => x.Password)
-      .NotEmpty()
-      .WithMessage("Password is required.")
-      .MinimumLength(8)
-      .WithMessage("Password must be at least 8 characters long.")
-      .Matches(@"[A-Z]")
-      .WithMessage("Password must contain at least one uppercase letter.")
-      .Matches(@"[a-z]")
-      .WithMessage("Password must contain at least one lowercase letter.")
-      .Matches(@"\d")
-      .WithMessage("Password must contain at least one number.");
+      .NotEmpty().WithMessage("Password is required.")
+      .MinimumLength(8).WithMessage("Password must be at least 8 characters long.")
+      .Matches(@"[A-Z]").WithMessage("Password must contain at least one uppercase letter.")
+      .Matches(@"[a-z]").WithMessage("Password must contain at least one lowercase letter.")
+      .Matches(@"\d").WithMessage("Password must contain at least one number.");
   }
 }
+
 
 public record CreateUtenteResponse(Guid Id, string Username, string Email, bool Attivo);

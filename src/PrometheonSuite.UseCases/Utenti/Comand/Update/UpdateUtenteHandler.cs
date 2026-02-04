@@ -4,7 +4,7 @@ using System.Text;
 using PrometheonSuite.Identity.Core.Interfaces;
 using PrometheonSuite.Identity.Entities.UtenteAggregate;
 
-namespace  PrometheonSuite.Identity.UseCases.Utenti.Update;
+namespace  PrometheonSuite.Identity.UseCases.Utenti.Comand.Update;
 
 public class UpdateUtenteHandler(ICoreRepository<Utente> repository)
     : ICommandHandler<UpdateUtenteCommand, Result<UtenteDto>>

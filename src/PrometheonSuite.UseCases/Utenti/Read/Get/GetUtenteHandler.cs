@@ -4,7 +4,7 @@ using System.Text;
 using PrometheonSuite.Identity.Core.Interfaces;
 using PrometheonSuite.Identity.Entities.UtenteAggregate;
 
-namespace  PrometheonSuite.Identity.UseCases.Utenti.Get;
+namespace  PrometheonSuite.Identity.UseCases.Utenti.Read.Get;
 
 
 public class GetUtenteHandler(ICoreReadRepository<Utente> repository)
