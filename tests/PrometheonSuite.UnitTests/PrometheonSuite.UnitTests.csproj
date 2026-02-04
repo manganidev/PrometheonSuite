@@ -41,8 +41,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\PrometheonSuite.Core\PrometheonSuite.Identity.Core.csproj" />
-    <ProjectReference Include="..\..\src\PrometheonSuite.UseCases\PrometheonSuite.Identity.UseCases.csproj" />
+    <ProjectReference Include="..\..\src\Identity\PrometheonSuite.Identity.Core\PrometheonSuite.Identity.Core.csproj" />
+    <ProjectReference Include="..\..\src\Identity\PrometheonSuite.Identity.UseCases\PrometheonSuite.Identity.UseCases.csproj" />
   </ItemGroup>
 
 </Project>

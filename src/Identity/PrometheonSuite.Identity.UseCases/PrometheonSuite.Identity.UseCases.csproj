@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="Ardalis.Result" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PrometheonSuite.Identity.Core\PrometheonSuite.Identity.Core.csproj" />
+    <ProjectReference Include="..\..\PrometheonSuite.SharedKernel\PrometheonSuite.Shared.Kernel.csproj" />
+  </ItemGroup>
+
+</Project>

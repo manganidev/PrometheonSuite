@@ -10,7 +10,6 @@
     <PackageReference Include="Ardalis.SharedKernel" />
     <PackageReference Include="Ardalis.SmartEnum" />
     <PackageReference Include="Ardalis.Specification" />
-    <PackageReference Include="BCrypt.Net-Next" />
     <PackageReference Include="Mediator.Abstractions" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
     <PackageReference Include="Vogen" />
@@ -21,7 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PrometheonSuite.SharedKernel\PrometheonSuite.Shared.Kernel.csproj" />
+    <ProjectReference Include="..\..\PrometheonSuite.SharedKernel\PrometheonSuite.Shared.Kernel.csproj" />
   </ItemGroup>
+
+ 
 
 </Project>

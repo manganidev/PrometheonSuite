@@ -19,10 +19,8 @@
   </ItemGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\PaddockHR.Core\PrometheonSuite.PaddockHR.Core.csproj" />
-    <ProjectReference Include="..\PaddockHR.UseCases\PrometheonSuite.PaddockHR.UseCases.csproj" />
-    <ProjectReference Include="..\PrometheonSuite.Core\PrometheonSuite.Identity.Core.csproj" />
-    <ProjectReference Include="..\PrometheonSuite.UseCases\PrometheonSuite.Identity.UseCases.csproj" />
+    <ProjectReference Include="..\PrometheonSuite.Identity.Core\PrometheonSuite.Identity.Core.csproj" />
+    <ProjectReference Include="..\PrometheonSuite.Identity.UseCases\PrometheonSuite.Identity.UseCases.csproj" />
   </ItemGroup>
   
   <ItemGroup>
