@@ -12,16 +12,20 @@
     <File Path="Directory.Packages.props" />
   </Folder>
   <Folder Name="/src/">
-    <Project Path="src/PaddockHR.Core/PrometheonSuite.PaddockHR.Core.csproj" />
-    <Project Path="src/PaddockHR.UseCases/PrometheonSuite.PaddockHR.UseCases.csproj" />
-    <Project Path="src/PrometheonSuite.Core/PrometheonSuite.Identity.Core.csproj" />
-    <Project Path="src/PrometheonSuite.Infrastructure/PrometheonSuite.Identity.Infrastructure.csproj" />
-    <Project Path="src/PrometheonSuite.PaddockHR.Infrastructure/PrometheonSuite.PaddockHR.Infrastructure.csproj" Id="6098d374-662d-468c-a4d9-24901c40f885" />
-    <Project Path="src/PrometheonSuite.PaddockHr.Web/PrometheonSuite.PaddockHr.Web.csproj" />
     <Project Path="src/PrometheonSuite.Shared.Infrastructure/PrometheonSuite.Shared.Infrastructure.csproj" Id="60bc0540-661c-4c3c-aaee-526251d5087f" />
     <Project Path="src/PrometheonSuite.SharedKernel/PrometheonSuite.Shared.Kernel.csproj" Id="c4d6aae4-16c1-4514-b7b2-d1ed9ce18d62" />
+  </Folder>
+  <Folder Name="/src/Identity/">
+    <Project Path="src/PrometheonSuite.Core/PrometheonSuite.Identity.Core.csproj" />
+    <Project Path="src/PrometheonSuite.Infrastructure/PrometheonSuite.Identity.Infrastructure.csproj" />
     <Project Path="src/PrometheonSuite.UseCases/PrometheonSuite.Identity.UseCases.csproj" />
     <Project Path="src/PrometheonSuite.Web/PrometheonSuite.Identity.Web.csproj" />
+  </Folder>
+  <Folder Name="/src/PaddockHR/">
+    <Project Path="src/PaddockHR.Core/PrometheonSuite.PaddockHR.Core.csproj" />
+    <Project Path="src/PaddockHR.UseCases/PrometheonSuite.PaddockHR.UseCases.csproj" />
+    <Project Path="src/PrometheonSuite.PaddockHR.Infrastructure/PrometheonSuite.PaddockHR.Infrastructure.csproj" Id="6098d374-662d-468c-a4d9-24901c40f885" />
+    <Project Path="src/PrometheonSuite.PaddockHr.Web/PrometheonSuite.PaddockHr.Web.csproj" />
   </Folder>
   <Folder Name="/src/_aspire/">
     <Project Path="src/PrometheonSuite.AspireHost/PrometheonSuite.AspireHost.csproj" />
