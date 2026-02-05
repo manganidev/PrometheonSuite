@@ -22,9 +22,28 @@ public class Utente : AuditableEntity<Utente, UtenteId>, IAggregateRoot
     Email = email;
     Password = password;
   }
+  public static Utente CreateSeeded(
+    UtenteId id,
+    Username username,
+    Email email,
+    HashedPassword password,
+    bool attivo = true)
+  {
+    var utente = new Utente
+    {
+      Id = id,
+      Username = username,
+      Email = email,
+      Password = password,
+      Attivo = attivo
+    };
+
+    return utente;
+  }
+
 
   // EF Core requires a parameterless constructor
-  #pragma warning disable CS8618
+#pragma warning disable CS8618
   private Utente()
   {
     // Initialize with temp Guid - EF will set the real value from database

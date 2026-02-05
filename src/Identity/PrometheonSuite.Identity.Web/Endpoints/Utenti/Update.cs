@@ -20,7 +20,7 @@ public class Update(IMediator mediator)
   public override void Configure()
   {
     Put(UpdateUtenteRequest.Route);
-    AllowAnonymous();
+
 
     Summary(s =>
     {

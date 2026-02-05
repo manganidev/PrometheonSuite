@@ -26,7 +26,22 @@ public class Figure : AuditableEntity<Figure, FigureId>, IAggregateRoot
     Id = FigureId.From(Guid.Empty);
   }
 #pragma warning restore CS8618
+  public static Figure CreateSeeded(
+    FigureId id,
+    FigureCode code,
+    FigureName name,
+    string? description = null)
+  {
+    var figure = new Figure
+    {
+      Id = id,
+      Code = code,
+      Name = name,
+      Description = description
+    };
 
+    return figure;
+  }
   public Figure AggiornaInfo(FigureCode nuovoCode, FigureName nuovoName, string? nuovaDescription)
   {
     Code = nuovoCode;

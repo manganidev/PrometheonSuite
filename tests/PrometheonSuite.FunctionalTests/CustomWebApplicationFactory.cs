@@ -52,7 +52,7 @@ public class CustomWebApplicationFactory<TProgram> : WebApplicationFactory<TProg
         db.Database.Migrate();
         
         // Seed the database with test data.
-        CoreSeedData.PopulateTestDataAsync(db).Wait();
+        CoreSeedData.SeedCoreDataAsync(db).Wait();
       }
       catch (Exception ex)
       {
