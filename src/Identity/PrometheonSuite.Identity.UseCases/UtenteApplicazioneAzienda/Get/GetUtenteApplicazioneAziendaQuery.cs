@@ -1,0 +1,5 @@
+﻿using PrometheonSuite.Identity.Entities.UtenteApplicazioneAziendaAggregate;
+
+namespace  PrometheonSuite.Identity.UseCases.UtenteApplicazioneAziendas.Get;
+
+public record GetUtenteApplicazioneAziendaQuery(UtenteApplicazioneAziendaId UtenteApplicazioneAziendaId) : IQuery<Result<UtenteApplicazioneAziendaDto>>;

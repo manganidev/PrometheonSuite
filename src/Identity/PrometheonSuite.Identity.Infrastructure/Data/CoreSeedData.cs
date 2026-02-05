@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PrometheonSuite.Identity.Entities.FigureAggregate;
+using PrometheonSuite.Identity.Entities.FiguraAggregate;
 using PrometheonSuite.Identity.Entities.UtenteAggregate;
 
 namespace PrometheonSuite.Identity.Infrastructure.Data;
@@ -45,35 +45,35 @@ public static class CoreSeedData
   private static async Task SeedFiguresAsync(CoreDbContext dbContext)
   {
     // Se vuoi essere più robusto, controlla per code invece che "Any"
-    var hasAdmin = await dbContext.Figures.AnyAsync(f => f.Code == FigureCode.From("ADMIN"));
-    var hasUtenteBase = await dbContext.Figures.AnyAsync(f => f.Code == FigureCode.From("UTENTE_BASE"));
+    //var hasAdmin = await dbContext.Figures.AnyAsync(f => f.Code == FigureCode.From("ADMIN"));
+    //var hasUtenteBase = await dbContext.Figures.AnyAsync(f => f.Code == FigureCode.From("UTENTE_BASE"));
 
-    if (hasAdmin && hasUtenteBase)
-      return;
+    //if (hasAdmin && hasUtenteBase)
+    //  return;
 
-    if (!hasAdmin)
-    {
-      var adminFigure = Figure.CreateSeeded(
-          SeedFigureIds.Admin,
-          FigureCode.From("ADMIN"),
-          FigureName.From("Amministratore"),
-          "Figura amministrativa di sistema"
-      );
+    //if (!hasAdmin)
+    //{
+    //  var adminFigure = Figure.CreateSeeded(
+    //      SeedFigureIds.Admin,
+    //      FigureCode.From("ADMIN"),
+    //      FigureName.From("Amministratore"),
+    //      "Figura amministrativa di sistema"
+    //  );
 
-      dbContext.Figures.Add(adminFigure);
-    }
+    //  dbContext.Figures.Add(adminFigure);
+    //}
 
-    if (!hasUtenteBase)
-    {
-      var utenteBaseFigure = Figure.CreateSeeded(
-          SeedFigureIds.UtenteBase,
-          FigureCode.From("UTENTE_BASE"),
-          FigureName.From("Utente Base"),
-          "Figura standard dell'applicazione"
-      );
+    //if (!hasUtenteBase)
+    //{
+    //  var utenteBaseFigure = Figure.CreateSeeded(
+    //      SeedFigureIds.UtenteBase,
+    //      FigureCode.From("UTENTE_BASE"),
+    //      FigureName.From("Utente Base"),
+    //      "Figura standard dell'applicazione"
+    //  );
 
-      dbContext.Figures.Add(utenteBaseFigure);
-    }
+    //  dbContext.Figures.Add(utenteBaseFigure);
+    //}
 
     await dbContext.SaveChangesAsync();
   }
