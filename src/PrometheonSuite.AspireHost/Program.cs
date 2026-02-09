@@ -30,18 +30,26 @@ var papercut = builder.AddContainer("papercut", "jijiechen/papercut", "latest")
     e.UriScheme = "http";
   });
 
+//RABBITMQ
+// 1) Risorsa RabbitMQ (container)
+var rabbitMq = builder.AddRabbitMQ("rabbitmq")
+  .WithManagementPlugin(); // espone la UI di management
+
 // Add the web project with the database connection
 builder.AddProject<Projects.PrometheonSuite_Identity_Web>("prometheonsuite-identity-web")
-    .WithReference(coreDb)
+  .WithReference(rabbitMq)
+  .WithReference(coreDb)
     .WithEnvironment("Auth__Issuer", "prometheon-identity")   // PUÒ ESSERE ANCHE UN URL, ma non è obbligatorio
     .WithEnvironment("Auth__Audience", "prometheon-suite-api")
     .WithEnvironment("Auth__Key", "f\"ST,qxL|X9XWuQ9sw3UH\"tXnO*mLZ'iZkoiL\\qH$`o'=\\RWf'")
     .WithEnvironment("ASPNETCORE_ENVIRONMENT", builder.Environment.EnvironmentName)
     .WithEnvironment("Papercut__Smtp__Url", papercut.GetEndpoint("smtp"))
     .WaitFor(coreDb)
+      .WaitFor(rabbitMq)
     .WaitFor(papercut);
 
 builder.AddProject<Projects.PrometheonSuite_PaddockHr_Web>("prometheonsuite-paddockhr-web")
+  .WithReference(rabbitMq)
     .WithReference(paddockDB)
     .WithEnvironment("Auth__Issuer", "prometheon-identity")   // lo stesso issuer!
     .WithEnvironment("Auth__Audience", "prometheon-suite-api")
@@ -49,6 +57,7 @@ builder.AddProject<Projects.PrometheonSuite_PaddockHr_Web>("prometheonsuite-padd
     .WithEnvironment("ASPNETCORE_ENVIRONMENT", builder.Environment.EnvironmentName)
     .WithEnvironment("Papercut__Smtp__Url", papercut.GetEndpoint("smtp"))
     .WaitFor(paddockDB)
+      .WaitFor(rabbitMq)
     .WaitFor(papercut);
 
 

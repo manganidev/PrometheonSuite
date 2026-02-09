@@ -1,5 +1,7 @@
-﻿using PrometheonSuite.Identity.Core.Interfaces;
+﻿
+using PrometheonSuite.Identity.Core.Interfaces;
 using PrometheonSuite.Identity.Infrastructure.Data;
+using PrometheonSuite.Identity.Infrastructure.Messaggistica;
 using PrometheonSuite.Identity.Infrastructure.Services.Auth;
 using PrometheonSuite.Identity.Infrastructure.Services.Utenti;
 using PrometheonSuite.Identity.UseCases.Utenti.Services;
@@ -39,9 +41,11 @@ public static class InfrastructureServiceExtensions
 
     services.AddScoped(typeof(ICoreRepository<>), typeof(CoreEfRepository<>))
            .AddScoped(typeof(ICoreReadRepository<>), typeof(CoreEfRepository<>));
-           //.AddScoped<IListContributorsQueryService, ListContributorsQueryService>()
-           //.AddScoped<IDeleteContributorService, DeleteContributorService>();
+    //.AddScoped<IListContributorsQueryService, ListContributorsQueryService>()
+    //.AddScoped<IDeleteContributorService, DeleteContributorService>();
 
+    services.AggiungiMessaggistica(config);
+    services.AddScoped<PubblicaEventiUtenteService>();
     logger.LogInformation("{Project} services registered", "Infrastructure");
 
     return services;
