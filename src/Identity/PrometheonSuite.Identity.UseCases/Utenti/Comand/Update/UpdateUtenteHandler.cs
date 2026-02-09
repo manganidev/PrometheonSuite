@@ -6,12 +6,9 @@ using PrometheonSuite.Identity.Entities.UtenteAggregate;
 
 namespace  PrometheonSuite.Identity.UseCases.Utenti.Comand.Update;
 
-public class UpdateUtenteHandler(
-  ICoreRepository<Utente> repository,
-  PubblicaEventiUtenteService servizioEventi
-) : ICommandHandler<UpdateUtenteCommand, Result<UtenteDto>>
+public class UpdateUtenteHandler(ICoreRepository<Utente> repository)
+    : ICommandHandler<UpdateUtenteCommand, Result<UtenteDto>>
 {
-
   public async ValueTask<Result<UtenteDto>> Handle(UpdateUtenteCommand request, CancellationToken cancellationToken)
   {
     var entity = await repository.GetByIdAsync(request.UtenteId, cancellationToken);
@@ -22,12 +19,7 @@ public class UpdateUtenteHandler(
     entity.AggiornaAnagrafica(request.Username, request.Email);
 
     await repository.UpdateAsync(entity, cancellationToken);
-    // 🔔 EVENTO DI INTEGRAZIONE (MassTransit)
-    await servizioEventi.PubblicaUsernameAggiornatoAsync(
-      entity.Id,
-      entity.Username,
-      cancellationToken
-    );
+
     return new UtenteDto(entity.Id, entity.Username, entity.Email, entity.Attivo);
   }
 }
