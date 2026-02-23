@@ -11,6 +11,12 @@ public class List(IMediator mediator) : Endpoint<ListFigureRequest, FiguraListRe
     Get("/Figure");
     Policies("RequireAuthenticatedUser");
     Tags("Figure");
+
+    Summary(s =>
+    {
+      s.Summary = "List figure with pagination";
+      s.Description = "Retrieves a paginated list of figure.";
+    });
   }
 
   public override async Task HandleAsync(ListFigureRequest req, CancellationToken ct)

@@ -11,6 +11,12 @@ public class List(IMediator mediator) : Endpoint<ListRuoliRequest, RuoloListResp
     Get("/Ruoli");
     Policies("RequireAuthenticatedUser");
     Tags("Ruoli");
+
+    Summary(s =>
+    {
+      s.Summary = "List ruoli with pagination";
+      s.Description = "Retrieves a paginated list of ruoli.";
+    });
   }
 
   public override async Task HandleAsync(ListRuoliRequest req, CancellationToken ct)

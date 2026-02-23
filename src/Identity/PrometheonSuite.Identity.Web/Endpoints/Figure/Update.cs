@@ -15,6 +15,12 @@ public class Update(IMediator mediator)
     Put("/Figure/{FiguraId:guid}");
     Policies("RequireAuthenticatedUser");
     Tags("Figure");
+
+    Summary(s =>
+    {
+      s.Summary = "Update figure";
+      s.Description = "Updates an existing figure.";
+    });
   }
 
   public override async Task<Results<Ok<FiguraResponse>, NotFound, ProblemHttpResult>> ExecuteAsync(UpdateFiguraRequest req, CancellationToken ct)

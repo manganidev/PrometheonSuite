@@ -15,6 +15,12 @@ public class Update(IMediator mediator)
     Put("/Ruoli/{RuoloId:guid}");
     Policies("RequireAuthenticatedUser");
     Tags("Ruoli");
+
+    Summary(s =>
+    {
+      s.Summary = "Update ruoli";
+      s.Description = "Updates an existing ruoli.";
+    });
   }
 
   public override async Task<Results<Ok<RuoloResponse>, NotFound, ProblemHttpResult>> ExecuteAsync(UpdateRuoloRequest req, CancellationToken ct)

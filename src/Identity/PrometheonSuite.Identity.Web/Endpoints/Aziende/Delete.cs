@@ -13,6 +13,12 @@ public class Delete(IMediator mediator)
     Delete("/Aziende/{AziendaId:guid}");
     Policies("RequireAuthenticatedUser");
     Tags("Aziende");
+
+    Summary(s =>
+    {
+      s.Summary = "Delete aziende";
+      s.Description = "Deletes an existing aziende.";
+    });
   }
 
   public override async Task<Results<NoContent, NotFound, ProblemHttpResult>> ExecuteAsync(AziendaIdRequest req, CancellationToken ct)

@@ -11,6 +11,12 @@ public class List(IMediator mediator) : Endpoint<ListApplicazioniRequest, Applic
     Get("/Applicazioni");
     Policies("RequireAuthenticatedUser");
     Tags("Applicazioni");
+
+    Summary(s =>
+    {
+      s.Summary = "List applicazioni with pagination";
+      s.Description = "Retrieves a paginated list of applicazioni.";
+    });
   }
 
   public override async Task HandleAsync(ListApplicazioniRequest req, CancellationToken ct)

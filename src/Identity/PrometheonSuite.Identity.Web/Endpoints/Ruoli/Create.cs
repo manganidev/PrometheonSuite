@@ -15,6 +15,12 @@ public class Create(IMediator mediator)
     Post("/Ruoli");
     Policies("RequireAuthenticatedUser");
     Tags("Ruoli");
+
+    Summary(s =>
+    {
+      s.Summary = "Create ruoli";
+      s.Description = "Creates a new ruoli.";
+    });
   }
 
   public override async Task<Results<Created<CreateRuoloResponse>, ValidationProblem, ProblemHttpResult>> ExecuteAsync(CreateRuoloRequest req, CancellationToken ct)

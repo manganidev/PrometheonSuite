@@ -14,6 +14,12 @@ public class GetById(IMediator mediator)
     Get("/Aziende/{AziendaId:guid}");
     Policies("RequireAuthenticatedUser");
     Tags("Aziende");
+
+    Summary(s =>
+    {
+      s.Summary = "Get aziende by id";
+      s.Description = "Retrieves a single aziende by its identifier.";
+    });
   }
 
   public override async Task<Results<Ok<AziendaResponse>, NotFound, ProblemHttpResult>> ExecuteAsync(AziendaIdRequest req, CancellationToken ct)

@@ -11,6 +11,12 @@ public class List(IMediator mediator) : Endpoint<ListAziendeRequest, AziendaList
     Get("/Aziende");
     Policies("RequireAuthenticatedUser");
     Tags("Aziende");
+
+    Summary(s =>
+    {
+      s.Summary = "List aziende with pagination";
+      s.Description = "Retrieves a paginated list of aziende.";
+    });
   }
 
   public override async Task HandleAsync(ListAziendeRequest req, CancellationToken ct)

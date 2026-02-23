@@ -15,6 +15,12 @@ public class Update(IMediator mediator)
     Put("/Applicazioni/{ApplicazioneId:guid}");
     Policies("RequireAuthenticatedUser");
     Tags("Applicazioni");
+
+    Summary(s =>
+    {
+      s.Summary = "Update applicazioni";
+      s.Description = "Updates an existing applicazioni.";
+    });
   }
 
   public override async Task<Results<Ok<ApplicazioneResponse>, NotFound, ProblemHttpResult>> ExecuteAsync(UpdateApplicazioneRequest req, CancellationToken ct)

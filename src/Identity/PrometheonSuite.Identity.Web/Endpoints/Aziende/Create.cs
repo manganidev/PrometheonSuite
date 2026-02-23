@@ -14,6 +14,12 @@ public class Create(IMediator mediator)
     Post("/Aziende");
     Policies("RequireAuthenticatedUser");
     Tags("Aziende");
+
+    Summary(s =>
+    {
+      s.Summary = "Create aziende";
+      s.Description = "Creates a new aziende.";
+    });
   }
 
   public override async Task<Results<Created<CreateAziendaResponse>, ValidationProblem, ProblemHttpResult>> ExecuteAsync(CreateAziendaRequest req, CancellationToken ct)

@@ -13,6 +13,12 @@ public class Delete(IMediator mediator)
     Delete("/Figure/{FiguraId:guid}");
     Policies("RequireAuthenticatedUser");
     Tags("Figure");
+
+    Summary(s =>
+    {
+      s.Summary = "Delete figure";
+      s.Description = "Deletes an existing figure.";
+    });
   }
 
   public override async Task<Results<NoContent, NotFound, ProblemHttpResult>> ExecuteAsync(DeleteFiguraRequest req, CancellationToken ct)

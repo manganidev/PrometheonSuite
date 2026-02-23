@@ -16,6 +16,12 @@ public class AddRole(IMediator mediator)
     Post("/Figure/{FiguraId:guid}/Ruoli/{RuoloId:guid}");
     Policies("RequireAuthenticatedUser");
     Tags("Figure");
+
+    Summary(s =>
+    {
+      s.Summary = "Manage ruolo associations for figura";
+      s.Description = "Adds or removes ruolo associations for a figura.";
+    });
   }
 
   public override async Task<Results<Ok<FiguraResponse>, NotFound, ProblemHttpResult>> ExecuteAsync(FiguraRoleRequest req, CancellationToken ct)
@@ -36,6 +42,12 @@ public class RemoveRole(IMediator mediator)
     Delete("/Figure/{FiguraId:guid}/Ruoli/{RuoloId:guid}");
     Policies("RequireAuthenticatedUser");
     Tags("Figure");
+
+    Summary(s =>
+    {
+      s.Summary = "Manage ruolo associations for figura";
+      s.Description = "Adds or removes ruolo associations for a figura.";
+    });
   }
 
   public override async Task<Results<Ok<FiguraResponse>, NotFound, ProblemHttpResult>> ExecuteAsync(FiguraRoleRequest req, CancellationToken ct)

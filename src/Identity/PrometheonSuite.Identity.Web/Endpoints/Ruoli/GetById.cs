@@ -14,6 +14,12 @@ public class GetById(IMediator mediator)
     Get("/Ruoli/{RuoloId:guid}");
     Policies("RequireAuthenticatedUser");
     Tags("Ruoli");
+
+    Summary(s =>
+    {
+      s.Summary = "Get ruoli by id";
+      s.Description = "Retrieves a single ruoli by its identifier.";
+    });
   }
 
   public override async Task<Results<Ok<RuoloResponse>, NotFound, ProblemHttpResult>> ExecuteAsync(RuoloIdRequest req, CancellationToken ct)

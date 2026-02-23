@@ -14,6 +14,12 @@ public class GetById(IMediator mediator)
     Get("/Figure/{FiguraId:guid}");
     Policies("RequireAuthenticatedUser");
     Tags("Figure");
+
+    Summary(s =>
+    {
+      s.Summary = "Get figure by id";
+      s.Description = "Retrieves a single figure by its identifier.";
+    });
   }
 
   public override async Task<Results<Ok<FiguraResponse>, NotFound, ProblemHttpResult>> ExecuteAsync(GetFiguraRequest req, CancellationToken ct)

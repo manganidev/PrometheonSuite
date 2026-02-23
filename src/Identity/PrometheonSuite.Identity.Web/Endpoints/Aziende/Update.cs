@@ -15,6 +15,12 @@ public class Update(IMediator mediator)
     Put("/Aziende/{AziendaId:guid}");
     Policies("RequireAuthenticatedUser");
     Tags("Aziende");
+
+    Summary(s =>
+    {
+      s.Summary = "Update aziende";
+      s.Description = "Updates an existing aziende.";
+    });
   }
 
   public override async Task<Results<Ok<AziendaResponse>, NotFound, ProblemHttpResult>> ExecuteAsync(UpdateAziendaRequest req, CancellationToken ct)

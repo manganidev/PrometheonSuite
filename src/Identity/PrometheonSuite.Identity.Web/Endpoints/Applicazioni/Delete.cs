@@ -13,6 +13,12 @@ public class Delete(IMediator mediator)
     Delete("/Applicazioni/{ApplicazioneId:guid}");
     Policies("RequireAuthenticatedUser");
     Tags("Applicazioni");
+
+    Summary(s =>
+    {
+      s.Summary = "Delete applicazioni";
+      s.Description = "Deletes an existing applicazioni.";
+    });
   }
 
   public override async Task<Results<NoContent, NotFound, ProblemHttpResult>> ExecuteAsync(ApplicazioneIdRequest req, CancellationToken ct)

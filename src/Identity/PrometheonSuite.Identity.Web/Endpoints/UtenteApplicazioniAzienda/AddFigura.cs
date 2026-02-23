@@ -14,6 +14,12 @@ public class AddFigura(IMediator mediator)
     Post("/UtenteApplicazioniAzienda/{UtenteApplicazioneAziendaId:guid}/Figure/{FiguraId:guid}");
     Policies("RequireAuthenticatedUser");
     Tags("UtenteApplicazioniAzienda");
+
+    Summary(s =>
+    {
+      s.Summary = "Add figura to user-application-company association";
+      s.Description = "Adds a figura to the specified UtenteApplicazioneAzienda association.";
+    });
   }
 
   public override async Task<Results<Ok<UtenteApplicazioneAziendaResponse>, NotFound, ProblemHttpResult>> ExecuteAsync(UtenteApplicazioneAziendaFiguraRequest req, CancellationToken ct)

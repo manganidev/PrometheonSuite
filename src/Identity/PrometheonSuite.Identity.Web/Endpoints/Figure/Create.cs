@@ -15,6 +15,12 @@ public class Create(IMediator mediator)
     Post("/Figure");
     Policies("RequireAuthenticatedUser");
     Tags("Figure");
+
+    Summary(s =>
+    {
+      s.Summary = "Create figure";
+      s.Description = "Creates a new figure.";
+    });
   }
 
   public override async Task<Results<Created<CreateFiguraResponse>, ValidationProblem, ProblemHttpResult>> ExecuteAsync(CreateFiguraRequest req, CancellationToken ct)

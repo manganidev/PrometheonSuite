@@ -13,6 +13,12 @@ public class Delete(IMediator mediator)
     Delete("/Ruoli/{RuoloId:guid}");
     Policies("RequireAuthenticatedUser");
     Tags("Ruoli");
+
+    Summary(s =>
+    {
+      s.Summary = "Delete ruoli";
+      s.Description = "Deletes an existing ruoli.";
+    });
   }
 
   public override async Task<Results<NoContent, NotFound, ProblemHttpResult>> ExecuteAsync(RuoloIdRequest req, CancellationToken ct)
