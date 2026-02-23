@@ -34,7 +34,7 @@ public static class CoreSeedData
         adminId,
         Username.From("admin"),
         adminEmail,
-        HashedPassword.FromHash("$2a$12$daTGXyeFPHelYaYQxjnuROTM1PgdQ5I/JG0ua.wqrqdXXQF/jgSGO"),
+        HashedPassword.FromPlainText("Carpaccio123@"),
         attivo: true
     );
 
