@@ -35,7 +35,7 @@ public class TokenService : ITokenService
     var refreshEntity = new RefreshToken
     {
       Id = Guid.NewGuid(),
-      Token = refreshToken,
+      Token = HashToken(refreshToken),
       UserId = user.Id.Value,
       ExpiresAt = DateTimeOffset.UtcNow.AddDays(7),
       Used = false,
@@ -56,8 +56,10 @@ public class TokenService : ITokenService
 
   public async Task<AuthResult?> RefreshTokensAsync(string refreshToken, CancellationToken ct = default)
   {
+    var refreshTokenHash = HashToken(refreshToken);
+
     var stored = await _db.RefreshTokens
-        .FirstOrDefaultAsync(x => x.Token == refreshToken, ct);
+        .FirstOrDefaultAsync(x => x.Token == refreshTokenHash, ct);
 
     if (stored is null || stored.Used || stored.Revoked || stored.ExpiresAt < DateTimeOffset.UtcNow)
       return null;
@@ -106,6 +108,12 @@ public class TokenService : ITokenService
     return new JwtSecurityTokenHandler().WriteToken(token);
   }
 
+
+  private static string HashToken(string token)
+  {
+    var bytes = SHA256.HashData(Encoding.UTF8.GetBytes(token));
+    return Convert.ToHexString(bytes);
+  }
   private string GenerateRefreshToken()
   {
     var bytes = RandomNumberGenerator.GetBytes(64);

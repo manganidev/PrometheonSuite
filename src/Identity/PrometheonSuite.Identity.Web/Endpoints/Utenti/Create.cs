@@ -20,7 +20,7 @@ public class Create(IMediator mediator)
   public override void Configure()
   {
     Post(CreateUtenteRequest.Route);
-    AllowAnonymous();
+    Policies("RequireAuthenticatedUser");
     Summary(s =>
     {
       s.Summary = "Create a new user";

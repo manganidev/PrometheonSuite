@@ -19,7 +19,7 @@ public class Delete
   public override void Configure()
   {
     Delete(DeleteUtenteRequest.Route);
-    AllowAnonymous();
+    Policies("RequireAuthenticatedUser");
 
     Summary(s =>
     {
