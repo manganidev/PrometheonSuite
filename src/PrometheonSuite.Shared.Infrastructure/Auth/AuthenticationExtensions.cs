@@ -11,9 +11,25 @@ public static class AuthenticationExtensions
   public static IServiceCollection AddJwtAuthentication(
       this IServiceCollection services, IConfiguration configuration)
   {
-    var key = configuration["Auth:Key"]!;
+    var key = configuration["Auth:Key"];
     var issuer = configuration["Auth:Issuer"];
     var audience = configuration["Auth:Audience"];
+
+    if (string.IsNullOrWhiteSpace(key) || key.Length < 32)
+    {
+      throw new InvalidOperationException(
+        "Missing or invalid configuration for Auth:Key. Provide a strong key of at least 32 characters.");
+    }
+
+    if (string.IsNullOrWhiteSpace(issuer))
+    {
+      throw new InvalidOperationException("Missing configuration for Auth:Issuer.");
+    }
+
+    if (string.IsNullOrWhiteSpace(audience))
+    {
+      throw new InvalidOperationException("Missing configuration for Auth:Audience.");
+    }
 
     services
         .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -41,4 +57,3 @@ public static class AuthenticationExtensions
   }
 
 }
-

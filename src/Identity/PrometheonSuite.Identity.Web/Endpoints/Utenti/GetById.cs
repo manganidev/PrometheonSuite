@@ -18,7 +18,8 @@ public class GetById(IMediator mediator)
   public override void Configure()
   {
     Get(GetUtenteByIdRequest.Route);
-  
+    Policies("RequireAuthenticatedUser");
+
 
     Summary(s =>
     {

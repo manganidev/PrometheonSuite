@@ -12,7 +12,7 @@ public class List(IMediator mediator) : Endpoint<ListUtentiRequest, UtenteListRe
   public override void Configure()
   {
     Get("/Utenti");
-    AllowAnonymous();
+    Policies("RequireAuthenticatedUser");
 
     Summary(s =>
     {
